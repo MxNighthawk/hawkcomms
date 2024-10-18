@@ -1,0 +1,218 @@
+:root {
+	--colorRotation: 0;
+	--leftShift: 0;
+}
+::placeholder {
+	color: #bbb;
+}
+
+#roadMap {
+	background-color: #252525;
+	color: white;
+
+	height: 80vh;
+	border: solid #252525 4px;
+	border-radius: 4px;
+}
+#mapDrag {
+	min-height: 80vh;
+}
+
+.columnBackground {
+	position: absolute;
+	display: flex;
+	gap: 4px;
+	
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+.roadColumn {
+	background: linear-gradient(to right, #ddd 25%, #ccc 25%, #ccc 50%, #ddd 50%, #ddd 75%, #ccc 75%);
+	height: max-content;
+
+	min-height: 80vh;
+	height: 100%;
+
+	min-width: 160px;
+}
+.roadColumn:nth-child(even) {
+	background: linear-gradient(to right, #bbb 25%, #aaa 25%, #aaa 50%, #bbb 50%, #bbb 75%, #aaa 75%);
+}
+.dateStamp {
+	background-color: rgba(0, 0, 0, 0.5);
+	border-bottom: solid 4px #222;
+	backdrop-filter: blur(10px);
+
+	margin: 0px;
+	padding: 8px;
+	
+	text-align: center;
+}
+
+.orderStrips {
+	position: relative;
+	padding: 4px;
+	
+	padding-top: 41px;
+	width: max-content;
+}
+.orderRow {
+	position: relative;
+	display: flex;
+	column-gap: 12px;
+	
+	left: 0px;
+	right: 0px;
+}
+.order {
+	position: relative;
+	left: calc((41px) * var(--leftShift));
+	cursor: pointer;
+	filter: drop-shadow(0px 2px 2px hsla(var(--colorRotation), 100%, 19%, 1));
+	
+	margin-top: 4px;
+	height: max-content;
+	
+	overflow-y: hidden;
+	transition: height 0.2s ease;
+}
+.fill {
+	background-color: black;
+	opacity: 0.25;
+	
+	position: absolute;
+	right: 0px;
+
+	height: 100%;
+	width: 100%;
+}
+.fillTile, .userETA, .pricePaid, .orderTile {
+	position: relative;
+	
+	text-shadow: 0px 0px 4px black;
+	font-family: "Rajdhani Semi";
+	font-size: 18px;
+}
+
+.fillTile {
+	border-radius: 2px;
+}
+.orderTile {
+	border-radius: 2px;
+	background-color: hsl(var(--colorRotation), 100%, 29%);
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.orderTile p{
+	margin: 0px;
+	padding: 8px;
+}
+
+.userETA {
+	border-radius: 2px;
+	background-color: hsl(var(--colorRotation), 100%, 41%);
+
+	width: 100%;
+	
+	font-family: "Rajdhani Bold";
+	justify-content: space-between;
+	display: flex;
+}
+.orderTiles {
+	background-color: hsl(var(--colorRotation), 100%, 21%);
+	border-bottom-right-radius: 2px;
+	overflow: hidden;
+
+	display: grid;
+	gap: 4px;
+	padding: 4px;
+}
+.tileRow {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 4px;
+}
+.pricePaid {
+	background-color: hsl(var(--colorRotation), 100%, 36%);
+	border-radius: 0px 0px 2px 2px;
+	
+	width: 96px;
+}
+
+.username, .eta, .state, .orderTile p {
+	position: relative;
+}
+.pricePaid, .username, .eta{
+	margin: 0px;
+	padding: 6px 8px;
+}
+.eta {
+	text-align: right;
+}
+
+.state {
+	background-color: hsl(var(--colorRotation), 100%, 41%);
+	opacity: 1;
+
+	backdrop-filter: blur(10px);
+	border-radius: 4px;
+	cursor: pointer;
+
+	font-family: "Rajdhani Bold";
+	font-size: 14px;
+
+	text-shadow: 0px 0px 4px black;
+	text-transform: uppercase;
+
+	margin: 0px;
+	padding: 6px 12px;
+
+	height: min-content;
+}
+
+#mapFilters {
+	background-color: #252525;
+	border-top-left-radius: 4px;
+	
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+#colorFilters, #nameFilter {
+	display: flex;
+
+	padding: 4px 0px 0px 4px;
+	gap: 4px;
+}
+
+#nameFilter {
+	position: relative;
+	width: 100%;
+
+	padding: 4px 0px 0px 4px;
+	padding-bottom: 0px;
+
+	right: 0px;
+	margin-left: auto;
+}
+#nameSearch, #applyFilter {
+	font-family: "Rajdhani Semi";
+}
+#nameSearch {
+	background: #444;
+	color: white;
+	padding: 4px;
+
+	border: 0px;
+	border-radius: 4px;
+	
+	width: calc(100% - 96px);
+}
+#applyFilter {
+	padding: 4px;
+	border: 0px;
+	border-radius: 4px;
+	
+	width: 80px;
+}

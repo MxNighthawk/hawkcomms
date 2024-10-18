@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Commissions</title>
+
+		<link href="./CSS/commStyle.css" type="text/css" rel="stylesheet">
+		<link href="./CSS/roadmapStyle.css" type="text/css" rel="stylesheet">
+		<link href="./CSS/estimator.css" type="text/css" rel="stylesheet">
+	</head>
+	<body onload="javascript:PrepSizes();">
+		<h1>VERSION 0.14.12 - 10/13/2024, 12:04 AM PT</h1>
+
+		<h2>ESTIMATOR</h2>
+		<p>Use this to get an ESTIMATE on how much your commission would cost.</p>
+		<div id="estimator">
+			<div id="blockArea">
+				<div id="ticketSwap">
+					<button id="previousTicket" onclick="javascript:SwapToPrevious();">&leftarrow;</button>
+					<p id="ticketCounter">0 / 0</p>
+					<button id="nextTicket" onclick="javascript:SwapToNext();">&rightarrow;</button>
+				</div>
+
+				<div id="blockContainer">
+					
+				</div>
+				
+				<div id="ticketStats">
+					<button id="addBlock" onclick="javascript:AddBlock();">+</button>
+				</div>
+			</div>
+			<div id="visualAid">
+				
+			</div>
+		</div>
+
+		<h2>ROADMAP</h2>
+		<p>Tap on a strip or use the Filters on the bottom right. Date highlighting is automatic and synced to my timezone: Pacific Time (PT).</p>
+		<div id="roadMap" class="drag">
+			<div id="mapDrag" class="dragContent">
+				<div class="columnBackground">
+					<div class="roadColumn">
+						<p class="dateStamp"></p>
+					</div>
+					<div class="roadColumn">
+						<p class="dateStamp"></p>
+					</div>
+					<div class="roadColumn">
+						<p class="dateStamp"></p>
+					</div>
+					<div class="roadColumn">
+						<p class="dateStamp"></p>
+					</div>
+					<div class="roadColumn">
+						<p class="dateStamp"></p>
+					</div>
+					<div class="roadColumn">
+						<p class="dateStamp"></p>
+					</div>
+					<div class="roadColumn">
+						<p class="dateStamp"></p>
+					</div>
+					<div class="roadColumn">
+						<p class="dateStamp"></p>
+					</div>
+					<div class="roadColumn">
+						<p class="dateStamp"></p>
+					</div>
+					<div class="roadColumn">
+						<p class="dateStamp"></p>
+					</div>
+					<div class="roadColumn">
+						<p class="dateStamp"></p>
+					</div>
+					<div class="roadColumn">
+						<p class="dateStamp"></p>
+					</div>
+					<div class="roadColumn">
+						<p class="dateStamp"></p>
+					</div>
+					<div class="roadColumn">
+						<p class="dateStamp"></p>
+					</div>
+					<div class="roadColumn">
+						<p class="dateStamp"></p>
+					</div>
+				</div>
+				<div class="orderStrips">
+					<div class="orderRow">
+						<div class="order">
+							<div class="userETA">
+								<div class="fill"></div>
+								<p class="username"></p>
+								<p class="eta"></p>
+							</div>
+							<div class="orderTiles">
+							</div>
+							<div class="pricePaid">$0</div>
+						</div>
+						<div class="order"style="--leftShift: 4;">
+							<div class="userETA">
+								<div class="fill"></div>
+								<p class="username"></p>
+								<p class="eta"></p>
+							</div>
+							<div class="orderTiles">
+							</div>
+							<div class="pricePaid">$0</div>
+						</div>
+					</div>
+					<div class="order">
+						<div class="userETA">
+							<div class="fill"></div>
+							<p class="username"></p>
+							<p class="eta"></p>
+						</div>
+						<div class="orderTiles">
+							
+						</div>
+						<div class="pricePaid">$0</div>
+					</div>
+					<div class="order">
+						<div class="userETA">
+							<div class="fill"></div>
+							<p class="username"></p>
+							<p class="eta"></p>
+						</div>
+						<div class="orderTiles">
+
+						</div>
+						<div class="pricePaid">$0</div>
+					</div>
+					<div class="order">
+						<div class="userETA">
+							<div class="fill"></div>
+							<p class="username"></p>
+							<p class="eta"></p>
+						</div>
+						<div class="orderTiles">
+							
+						</div>
+						<div class="pricePaid">$0</div>
+					</div>
+				</div>
+				<div style="height: 64px; width: 100%;"></div>
+			</div>
+			<div id="mapFilters">
+				<form id="nameFilter" action="javascript:FilterByName(nameSearch.value);">
+					<input id="nameSearch" autocomplete="off" type="text" placeholder="Enter Username or Ticket #">
+					<input id="applyFilter" type="submit" value="Search">
+				</form>
+				<div id="colorFilters">
+					<p onclick="FilterByColor(0)" class="state" style="--colorRotation: 104;">Working On / Focused</p>
+					<p onclick="FilterByColor(1)" class="state" style="--colorRotation: 15;">Delayed</p>
+					<p onclick="FilterByColor(2)" class="state" style="--colorRotation: 220;">In Queue / Received</p>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script src="./JS/drag.js?version = 1.1.0"></script>
+	<script src="./JS/mapStrips.js?version = 1.1.1"></script>
+	<script src="./JS/roadmap.js?version = 1.4.0"></script>
+	<script src="./JS/estimator.js?version = 2.3.0"></script>
+</html>
