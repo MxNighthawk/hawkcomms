@@ -61,7 +61,7 @@ class Strip extends Interpolations
 
 	orders = [];
 
-	constructor(element, metaData)
+	constructor(element, dateShift, metaData)
 	{
 		super();
 		this.#self = element;
@@ -104,6 +104,7 @@ class Strip extends Interpolations
 		eta.getElementsByClassName("fill")[0].style.setProperty("width", `${100 - this.#totalProgress / this.orders.length}%`);
 		this.#self.getElementsByClassName("pricePaid")[0].innerHTML = `$${this.#totalPrice}`;
 		this.#self.style.width = `${316 + (164 * (metaData[2] == "Hours" || metaData[2] == "Hour" ? 0 : metaData[1] - 1))}px`;
+		this.#self.style.setProperty("--leftShift", dateShift);
 
 		let col = 0;
 		switch (this.tag) {
@@ -136,23 +137,28 @@ class Strip extends Interpolations
 }
 
 let order = document.getElementsByClassName("order");
+let stripParent = document.getElementsByClassName("orderStrips")[0];
+
+stripParent.style.setProperty("--leftShift", 4);
+
 let orderStrips =
 [
-	new Strip(order[0],
-	["Axelorca", 1, "Day", "focused", 
+	// constructor(orderTiles, price, type, quantity, details, makeRow, includedInRow, completion)
+	new Strip(order[0], 1,
+	["Axelorca", 2, "Days", "focused", 
 		[
 			new Task(order[0], 25, "Stickers", 5, "<br> + 2 Characters<br> + Sketch", true, 0, 20),
 			new Task(order[0], 50, "Still", 1, "<br> + Background<br> + Basic Lighting", false, 0, 40),
 			new Task(order[0], 80, "Ref Sheet", 1, "<br> + Front, Side, Back Angles<br> + Unlit", false, undefined, 0),
 		]
 	]),
-	new Strip(order[1],
+	new Strip(order[1], 4,
 	["Will Ott", 7, "Days", "delayed", 
 		[
 			new Task(order[1], 45, "Stickers", 15, "<br> + Sketch", false, undefined, 50),
 		]
 	]),
-	new Strip(order[2],
+	new Strip(order[2], 4,
 	["Axelorca", 3, "Days", "", 
 		[
 			new Task(order[2], 25, "Stickers", 5, "<br> + 2 Characters<br> + Sketch", true, 0, 50),
@@ -160,7 +166,7 @@ let orderStrips =
 			new Task(order[2], 80, "Ref Sheet", 1, "<br> + Front, Side, Back Angles<br> + Unlit", false, undefined, 50),
 		]
 	]),
-	new Strip(order[3],
+	new Strip(order[3], 6,
 	["Axelorca", 4, "Days", "", 
 		[
 			new Task(order[3], 25, "Stickers", 5, "<br> + 2 Characters<br> + Sketch", true, 0, 30),
@@ -168,7 +174,7 @@ let orderStrips =
 			new Task(order[3], 80, "Ref Sheet", 1, "<br> + Front, Side, Back Angles<br> + Unlit", false, undefined, 0),
 		]
 	]),
-	new Strip(order[4],
+	new Strip(order[4], 0,
 	["Orion Vance", 5, "Days", "focused", 
 		[
 			new Task(order[4], 25, "Stickers", 5, "<br> + 2 Characters<br> + Sketch", true, 0, 40),

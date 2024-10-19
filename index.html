@@ -5,33 +5,24 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Commissions</title>
 
-		<link href="./CSS/commStyle.css" type="text/css" rel="stylesheet">
+		<link href="./CSS/pageStyle.css" type="text/css" rel="stylesheet">
 		<link href="./CSS/roadmapStyle.css" type="text/css" rel="stylesheet">
-		<link href="./CSS/estimator.css" type="text/css" rel="stylesheet">
+		<link href="./CSS/estimatorStyle.css" type="text/css" rel="stylesheet">
 	</head>
 	<body onload="javascript:PrepSizes();">
 		<h1>VERSION 0.14.12 - 10/13/2024, 12:04 AM PT</h1>
 
 		<h2>ESTIMATOR</h2>
-		<p>Use this to get an ESTIMATE on how much your commission would cost.</p>
-		<div id="estimator">
-			<div id="blockArea">
-				<div id="ticketSwap">
-					<button id="previousTicket" onclick="javascript:SwapToPrevious();">&leftarrow;</button>
-					<p id="ticketCounter">0 / 0</p>
-					<button id="nextTicket" onclick="javascript:SwapToNext();">&rightarrow;</button>
-				</div>
-
-				<div id="blockContainer">
-					
-				</div>
-				
-				<div id="ticketStats">
-					<button id="addBlock" onclick="javascript:AddBlock();">+</button>
-				</div>
+		<div style="height: 80vh;">
+			<div id="stickerMatrix">
 			</div>
-			<div id="visualAid">
-				
+			<div id="comicColumn">
+			</div>
+			<div>
+				<input type="button" value="Deselect All" onclick="javascript:DeselectAll();">
+				<input type="button" value="Select All" onclick="javascript:SelectAll();">
+				<input type="button" value="Add Stickers" onclick="javascript:AddCell(stickerCells);">
+				<input type="button" value="Delete Stickers" onclick="javascript:DeleteCells(stickerCells);">
 			</div>
 		</div>
 
@@ -40,51 +31,23 @@
 		<div id="roadMap" class="drag">
 			<div id="mapDrag" class="dragContent">
 				<div class="columnBackground">
-					<div class="roadColumn">
-						<p class="dateStamp"></p>
-					</div>
-					<div class="roadColumn">
-						<p class="dateStamp"></p>
-					</div>
-					<div class="roadColumn">
-						<p class="dateStamp"></p>
-					</div>
-					<div class="roadColumn">
-						<p class="dateStamp"></p>
-					</div>
-					<div class="roadColumn">
-						<p class="dateStamp"></p>
-					</div>
-					<div class="roadColumn">
-						<p class="dateStamp"></p>
-					</div>
-					<div class="roadColumn">
-						<p class="dateStamp"></p>
-					</div>
-					<div class="roadColumn">
-						<p class="dateStamp"></p>
-					</div>
-					<div class="roadColumn">
-						<p class="dateStamp"></p>
-					</div>
-					<div class="roadColumn">
-						<p class="dateStamp"></p>
-					</div>
-					<div class="roadColumn">
-						<p class="dateStamp"></p>
-					</div>
-					<div class="roadColumn">
-						<p class="dateStamp"></p>
-					</div>
-					<div class="roadColumn">
-						<p class="dateStamp"></p>
-					</div>
-					<div class="roadColumn">
-						<p class="dateStamp"></p>
-					</div>
-					<div class="roadColumn">
-						<p class="dateStamp"></p>
-					</div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
+					<div class="roadColumn"><p class="dateStamp"></p></div>
 				</div>
 				<div class="orderStrips">
 					<div class="orderRow">
@@ -98,7 +61,7 @@
 							</div>
 							<div class="pricePaid">$0</div>
 						</div>
-						<div class="order"style="--leftShift: 4;">
+						<div class="order">
 							<div class="userETA">
 								<div class="fill"></div>
 								<p class="username"></p>
@@ -160,7 +123,7 @@
 	</body>
 
 	<script src="./JS/drag.js?version = 1.1.0"></script>
+	<script src="./JS/estimator.js?version = 0.0.2"></script>
 	<script src="./JS/mapStrips.js?version = 1.1.1"></script>
 	<script src="./JS/roadmap.js?version = 1.4.0"></script>
-	<script src="./JS/estimator.js?version = 2.3.0"></script>
 </html>

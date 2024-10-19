@@ -24,7 +24,7 @@ let filterName = "";
 for (let i = 0; i < dateStamps.length; i++) {
 	const element = dateStamps[i];
 	
-	var d = new Date("October 8, 2024");
+	var d = new Date("October 15, 2024");
 	d.setDate(d.getDate() + i);
 	d.setUTCHours(d.getUTCHours() + 10);
 	

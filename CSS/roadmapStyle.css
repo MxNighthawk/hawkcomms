@@ -55,6 +55,8 @@
 	position: relative;
 	padding: 4px;
 	
+	left: calc((41px) * var(--leftShift));
+	
 	padding-top: 41px;
 	width: max-content;
 }

@@ -1,0 +1,68 @@
+.stickerCell {
+	display: block;
+	background: green;
+	border: dashed 4px transparent;
+	border-radius: 4px;
+
+	align-content: center;
+	flex: 1 1 30%;
+	
+	max-width: none;
+	animation: none;
+
+	cursor: pointer;
+}
+
+.stickerCell:nth-child(even) {
+	background: #29b929;
+}
+
+.selectedCell {
+	border: dashed 4px #68ffa9;
+	border-radius: 4px;
+	opacity: 1;
+
+	animation: bounce 0.2s ease-in-out forwards;
+}
+
+.exampleSticker {
+	display: block;
+	margin: auto;
+
+	width: 100%;
+	-webkit-user-drag: none;
+}
+
+#stickerMatrix, #comicColumn {
+	gap: 4px;
+	padding: 4px;
+	border-radius: 4px;
+
+	min-height: 512px;
+	max-height: 512px;
+	max-width: 512px;
+
+	width: calc(100% - 8px);
+
+	background-color: #002c00;
+}
+
+#comicColumn {
+	display: none;
+}
+
+#stickerMatrix {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+}
+
+@keyframes bounce {
+	from {
+		transform: scale(0.9);
+	}
+	to {
+		transform: scale(1);
+	}
+}
