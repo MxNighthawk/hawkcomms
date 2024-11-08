@@ -1,17 +1,17 @@
-class Interpolations
-{
-	Lerp(a, b, t)
-	{
-		if(t > 1)
-			t = 0;
-		else if(t < 0)
-			t = 0;
-		
-		return a + (b - a) * t;
-	}
-}
+//
+//	COPYRIGHT NIGHTHAWK 2024. ALL RIGHTS RESERVED.
+//	PROGRAMMED BY: JESUS BARAJAS (AKA MXNIGHTHAWK / NIGHTHAWK / NIGHTHAWKDEV)
+//
 
-class Task extends Interpolations
+let maximumHeight = 0;
+let sizeTimings = {
+	duration: 200,
+	iterations: 1,
+	easing: "ease",
+	fill: "forwards"
+};
+
+class Task
 {
 	priceTag;
 	pieceType;
@@ -20,7 +20,6 @@ class Task extends Interpolations
 
 	constructor(orderTiles, price, type, quantity, details, makeRow, includedInRow, completion)
 	{
-		super();
 		this.priceTag = price;
 		this.pieceType = type;
 		this.quantity = quantity;
@@ -46,7 +45,7 @@ class Task extends Interpolations
 		</div>`;
 	}
 }
-class Strip extends Interpolations
+class Strip
 {
 	name;
 	tag;
@@ -60,10 +59,12 @@ class Strip extends Interpolations
 	#totalProgress = 0;
 
 	orders = [];
+	
+	expandFrames;
+	minimizeFrames;
 
 	constructor(element, dateShift, metaData)
 	{
-		super();
 		this.#self = element;
 		this.name = metaData[0];
 		this.tag = metaData[3];
@@ -91,7 +92,7 @@ class Strip extends Interpolations
 				this.#self.style.borderRadius = "2px";
 			}
 			
-			this.#self.style.height = `${this.Lerp(35, this.#orignalHeight, this.#target)}px`;
+			this.#self.animate(this.#target == 1? this.expandFrames : this.minimizeFrames, sizeTimings);
 		});
 
 		for (let i = 0; i < this.orders.length; i++) {
@@ -122,10 +123,28 @@ class Strip extends Interpolations
 		this.#self.style.setProperty("--colorRotation", col);
 	}
 
-	Minimize()
+	MinimizePrep()
 	{
 		this.#orignalHeight = this.#self.clientHeight;
-		this.#self.style.height = `${this.Lerp(35, this.#orignalHeight, 0)}px`;
+		
+		this.expandFrames = [
+			{
+				height: "35px"
+			},
+			{
+				height: `${this.#orignalHeight}px`
+			}
+		];
+		this.minimizeFrames = [
+			{
+				height: `${this.#orignalHeight}px`
+			},
+			{
+				height: "35px"
+			}
+		];
+
+		this.#self.animate(this.minimizeFrames, sizeTimings);
 	}
 
 	SetClickableState(state)

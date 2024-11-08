@@ -7,15 +7,47 @@
 }
 
 #roadMap {
-	background-color: #252525;
+	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 10%);
 	color: white;
 
 	height: 80vh;
-	border: solid #252525 4px;
-	border-radius: 4px;
+	border: solid 4px hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 10%);
+	border-radius: 0px 0px 4px 4px;
 }
 #mapDrag {
 	min-height: 80vh;
+}
+
+#mapFilters {
+	position: absolute;
+	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 10%);
+	border-radius: 4px;
+	
+	padding: 4px;
+	
+	max-width: 420px;
+	width: calc(100% - 16px);
+	
+	bottom: 4px;
+	right: 4px;
+}
+#nameSearch {
+	resize: none;
+	width: calc(100% - 12px);
+
+	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 23%);
+	color: white;
+	padding: 4px;
+
+	border: 0px;
+	border-radius: 4px;
+	padding: 6px;
+
+	margin-bottom: 4px;
+}
+#colorFilters {
+	display: flex;
+	gap: 4px;
 }
 
 .columnBackground {
@@ -29,26 +61,42 @@
 	right: 0px;
 }
 .roadColumn {
-	background: linear-gradient(to right, #ddd 25%, #ccc 25%, #ccc 50%, #ddd 50%, #ddd 75%, #ccc 75%);
+	background-image: url('../Graphics/Map%20Stripe.png');
+	background-size: contain;
+	background-repeat: repeat-y;
+
+	background-blend-mode: multiply;
+	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 75%);
+	
+	image-rendering: pixelated;
 	height: max-content;
 
 	min-height: 80vh;
 	height: 100%;
 
 	min-width: 160px;
-}
-.roadColumn:nth-child(even) {
-	background: linear-gradient(to right, #bbb 25%, #aaa 25%, #aaa 50%, #bbb 50%, #bbb 75%, #aaa 75%);
+	border-radius:4px;
 }
 .dateStamp {
 	background-color: rgba(0, 0, 0, 0.5);
-	border-bottom: solid 4px #222;
 	backdrop-filter: blur(10px);
 
+	border-bottom: solid 4px #222;
+	border-radius: 4px 4px 0px 0px;
+
 	margin: 0px;
-	padding: 8px;
+	padding: 6px 8px;
 	
 	text-align: center;
+}
+
+.currentDay.roadColumn {
+	background-blend-mode: overlay;
+	box-shadow: 0px 0px 8px hsl(120, 30%, 25%);
+	background-color: hsl(120, 30%, 25%);
+}
+.currentDay .dateStamp {
+	background-color: hsl(120, 40%, 60%);
 }
 
 .orderStrips {
@@ -57,7 +105,7 @@
 	
 	left: calc((41px) * var(--leftShift));
 	
-	padding-top: 41px;
+	padding-top: 36px;
 	width: max-content;
 }
 .orderRow {
@@ -72,13 +120,14 @@
 	position: relative;
 	left: calc((41px) * var(--leftShift));
 	cursor: pointer;
-	filter: drop-shadow(0px 2px 2px hsla(var(--colorRotation), 100%, 19%, 1));
+	filter: drop-shadow(0px 2px 2px hsla(var(--colorRotation), 100%, 19%, 0.75));
 	
 	margin-top: 4px;
 	height: max-content;
 	
 	overflow-y: hidden;
 	transition: height 0.2s ease;
+	border-radius: 2px;
 }
 .fill {
 	background-color: black;
@@ -170,51 +219,13 @@
 	margin: 0px;
 	padding: 6px 12px;
 
+	width: 100%;
+	min-width: max-content;
 	height: min-content;
 }
 
-#mapFilters {
-	background-color: #252525;
-	border-top-left-radius: 4px;
-	
-	position: absolute;
-	bottom: 0px;
-	right: 0px;
-}
-#colorFilters, #nameFilter {
-	display: flex;
-
-	padding: 4px 0px 0px 4px;
-	gap: 4px;
-}
-
-#nameFilter {
-	position: relative;
-	width: 100%;
-
-	padding: 4px 0px 0px 4px;
-	padding-bottom: 0px;
-
-	right: 0px;
-	margin-left: auto;
-}
-#nameSearch, #applyFilter {
-	font-family: "Rajdhani Semi";
-}
-#nameSearch {
-	background: #444;
-	color: white;
-	padding: 4px;
-
-	border: 0px;
-	border-radius: 4px;
-	
-	width: calc(100% - 96px);
-}
-#applyFilter {
-	padding: 4px;
-	border: 0px;
-	border-radius: 4px;
-	
-	width: 80px;
+@media (max-width: 500px) {
+	#colorFilters {
+		flex-direction: column;
+	}
 }

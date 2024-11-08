@@ -1,3 +1,8 @@
+//
+//	COPYRIGHT NIGHTHAWK 2024. ALL RIGHTS RESERVED.
+//	PROGRAMMED BY: JESUS BARAJAS (AKA MXNIGHTHAWK / NIGHTHAWK / NIGHTHAWKDEV)
+//
+
 function GenerateDrag(elmement, draggable, xShift, lastX, yShift, lastY, lastXShift, lastYShift, focusBlock = null)
 {
 	elmement.addEventListener("mousemove", (e) =>
@@ -36,10 +41,10 @@ function GenerateDrag(elmement, draggable, xShift, lastX, yShift, lastY, lastXSh
 			lastX = x;
 			lastXShift += xShift;
 			lastXShift = Clamp(lastXShift, elmement.clientWidth - draggable.scrollWidth, 0);
-			draggable.style.left = `${lastXShift}px`;
+			draggable.style.setProperty("left", `${lastXShift}px`);
 		}
 		else if(draggable.clientWidth < elmement.clientWidth)
-			draggable.style.left = `0px`;
+			draggable.style.setProperty("left", `0px`);
 
 		if(draggable.scrollHeight > elmement.clientHeight)
 		{
@@ -47,9 +52,9 @@ function GenerateDrag(elmement, draggable, xShift, lastX, yShift, lastY, lastXSh
 			lastY = y;
 			lastYShift += yShift;
 			lastYShift = Clamp(lastYShift, elmement.clientHeight - draggable.scrollHeight, 0);
-			draggable.style.top = `${lastYShift}px`;
+			draggable.style.setProperty("top", `${lastYShift}px`);
 		}
 		else if(draggable.clientHeight < elmement.clientHeight)
-			draggable.style.top = `0px`;
+			draggable.style.setProperty("top", `0px`);
 	}
 }
