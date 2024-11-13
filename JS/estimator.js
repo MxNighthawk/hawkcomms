@@ -106,6 +106,15 @@ let deleteTime =
 	fill: "forwards"
 };
 
+let outlines = [
+	"solid",
+	"solid",
+	"distortion",
+	"magic",
+	"fluid",
+	"fire"
+];
+
 class Sticker
 {
 	lightingType;
@@ -122,9 +131,9 @@ class Sticker
 
 	constructor()
 	{
-		this.lightingType = 0;
-		this.outlineStyle = 0;
-		this.charactersPresent = 0;
+		this.lightingType = 1;
+		this.outlineStyle = 1;
+		this.charactersPresent = 1;
 
 		this.cell = document.createElement('div');
 		this.#light = document.createElement('img');
@@ -194,10 +203,10 @@ class Sticker
 	PriceFromSticker(index)
 	{
 		let basePrice = typeID == 0 ? baseCell[index] : baseEvent[index];
-		let lDisc = basePrice - basePrice * this.lightingType * 0.15;
-		let customOut = lDisc + lDisc * (this.charactersPresent * 0.2);
+		let lDisc = basePrice - basePrice * (this.lightingType - 1) * 0.15;
+		let customOut = lDisc + lDisc * ((this.charactersPresent - 1) * 0.2);
 		
-		return customOut + customOut * (this.outlineStyle == 5 ? 0.02 : 0);
+		return customOut + customOut * (this.outlineStyle == 6 ? 0.02 : 0);
 	}
 
 	ReadMetadata()
@@ -208,35 +217,15 @@ class Sticker
 	}
 	SetLightLayer()
 	{
-		this.#location = characterType.selectedIndex == 0 ? "1char" : "2chars";
+		this.#location = characterType.selectedIndex != 2 ? "1char" : "2chars";
 		
-		this.#light.src = `./Graphics/Templates/Stickers/${this.#location}/${lightingType.selectedIndex == 0 ? "lit" : "unlit"}.png`;
+		this.#light.src = `./Graphics/Templates/Stickers/${this.#location}/${lightingType.selectedIndex != 2 ? "lit" : "unlit"}.png`;
 	}
 	SetOutlineLayer()
 	{
-		this.#location = characterType.selectedIndex == 0 ? "1char" : "2chars";
-		let fileName = "";
-
-		switch(outlineType.selectedIndex)
-		{
-			case 0:
-				fileName = "solid";
-				break;
-			case 1:
-				fileName = "distortion";
-				break;
-			case 2:
-				fileName = "fluid";
-				break;
-			case 3:
-				fileName = "fire";
-				break;
-			case 4:
-				fileName = "magic";
-				break;
-		}
+		this.#location = characterType.selectedIndex != 2 ? "1char" : "2chars";
 		
-		this.#outline.src = `./Graphics/Templates/Stickers/${this.#location}/${fileName}.png`;
+		this.#outline.src = `./Graphics/Templates/Stickers/${this.#location}/${outlines[outlineType.selectedIndex]}.png`;
 	}
 }
 class SAC extends Sticker
@@ -415,6 +404,13 @@ function SetEditorStyles()
 
 	selectAll.style.setProperty("opacity", selectedCells.length == cells.length ? 0.25 : 1);
 	deselectAll.style.setProperty("opacity", selectedCells.length == 0 ? 0.25 : 1);
+
+	if(selectedCells.length == 0)
+	{
+		characterType.selectedIndex = 0;
+		lightingType.selectedIndex = 0;
+		outlineType.selectedIndex = 0;
+	}
 }
 
 function ReadFirstCell()

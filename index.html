@@ -10,13 +10,16 @@
 		<link href="./CSS/roadmapStyle.css" type="text/css" rel="stylesheet">
 	</head>
 	<body onload="PrepSizes();AddCell();SetEditorStyles();SetRangeStyles();DisplayPacificTime();">
-		<h1>VERSION 0.18.1 - 11/2/2024, 10:33 PM PT</h1>
+		<h1>VERSION 0.18.2 - 11/12/2024, 10:01 PM PT</h1>
 		<code>
-			- You can now delete INDIVIDUAL changes in the Estimate Range list!
-			<br>- Animation transitions for cells and changes are now smoother, giving a better feel.
+			The editor will now visually display style previews whenever you make a change!
+			<br>- Changes are applied visually, giving an idea of what the sticker styles will look like.
+			<br>- Selecting styles will display the type the sticker(s) has/have.
+			<br>- All except Custom outline styles are visible.
+			<br><br>
 
-			<br><br>- And thus, all tools on the site are now FUNCTIONALLY complete!
-			<br>- All that remains on the site is making examples, creating visual details, making the site pretty, and uesr feedback!
+			The site is finally back on GitHub Pages!
+			<br>- Updating has been refined to avoid caching (remembering) old page versions when a new one should be displayed.
 		</code>
 
 		<h2>EXAMPLES</h2>
@@ -35,19 +38,22 @@
 					</div>
 					<div id="stickerParameters">
 						<select id="charCount" oninput="SetParameters(false, false, true);">
+							<option disabled selected>Characters Present</option>
 							<option>1 Character</option>
 							<option>2 Characters, [+20%]</option>
 						</select>
 						<select id="lighting" oninput="SetParameters(true, false, false);">
+							<option disabled selected>Lighting Styles</option>
 							<option>Simple Lighting</option>
 							<option>Unlit, [-15%]</option>
 						</select>
 						<select id="rimStyle" oninput="SetParameters(false, true, false);">
-							<option>Solid Outline</option>
+							<option disabled selected>Outline Styles</option>
+							<option>Solid</option>
 							<option>Distortion</option>
-							<option>Fluid</option>
-							<option>Fire</option>
 							<option>Magic</option>
+							<option>Liquid</option>
+							<option>Campfire</option>
 							<option>Custom, [+2%]</option>
 						</select>
 					</div>
@@ -196,7 +202,7 @@
 	</body>
 
 	<script src="./JS/drag.js?version = 1.1.1"></script>
-	<script src="./JS/estimator.js?version = 1.0.0"></script>
+	<script src="./JS/estimator.js?version = 1.1.0"></script>
 	<script src="./JS/mapStrips.js?version = 1.2.1"></script>
 	<script src="./JS/roadmap.js?version = 1.5.3"></script>
 </html>

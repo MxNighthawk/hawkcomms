@@ -305,15 +305,22 @@
 	border-radius: 4px;
 	opacity: 1;
 }
+
 .templatePart {
 	position: absolute;
 	
 	display: block;
 	margin: auto;
 
-	width: 100%;
+	width: max-content;
+	max-width: 100%;
+	
 	top: 0px;
 }
+.templatePart:first-child {
+	position: relative;
+}
+
 .descriptionBox {
 	width: 100%;
 
