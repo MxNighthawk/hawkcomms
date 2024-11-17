@@ -327,25 +327,6 @@
 	margin: 0px;
 	margin-top: 4px;
 }
-#editorTools button:not(.purgeChange) {
-	overflow: hidden;
-	display: flex;
-	gap: 4px;
-
-	padding: 0px;
-}
-#editorTools button:not(.purgeChange) p {
-	position: relative;
-	
-	margin: 0px;
-	padding: 5px;
-}
-#editorTools button:not(.purgeChange) img {
-	background-color: rgba(0, 0, 0, 0.5);
-
-	width: 18px;
-	padding: 7px;
-}
 
 #addCell {
 	background: #29b929;

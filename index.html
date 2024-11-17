@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="descriptoin" content="NighthawkDev art commissions.">
 		<title>Commissions</title>
 
 		<link href="./CSS/baseStyle.css" type="text/css" rel="stylesheet">
@@ -12,14 +13,11 @@
 
 	</head>
 	<body onload="PrepSizes();AddCell();SetEditorStyles();SetRangeStyles();DisplayPacificTime();">
-		<h1>VERSION 0.19.1b - 11/17/2024, 12:39 AM PT</h1>
+		<h1>VERSION 0.19.2b - 11/17/2024, 11:25 AM PT</h1>
 		<code>
-			The Estimator has been renamed to the Commission Editor. Although this gives an estimate, it's primary way of doing this
-			is by giving the user an editor to customize parts of their commission request.
+			The gallery has its focus overlay working. Tap / Click on an image to view its information.
 			<br>
-
-			<br>- Restructured how Draggables work. Now, they are Object-Oriented for better use and creation on the back-end.
-			<br>- Began adding in the Gallery, which at the moment you can just drag around. Soon you'll be able to touch and expand examples.
+			<br>- The gallery is now a scrollable item, instead of a draggable one.
 		</code>
 		
 		<div id="gallery">
@@ -28,37 +26,57 @@
 				<h1>EXAMPLES</h1>
 				<p class="sideTitle rt">Click/Tap an example to expand</p>
 			</div>
-			<div id="galleryContainer" class="drag">
-				<div id="galleryMask" class="dragContent">
-					<div class="exampleCell">
-						<h2>Sticker Sets</h2>
-						<div class="exampleItem">
-							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
+			<div id="galleryContainer">
+				<div id="focusedPiece">
+					<div id="focusedDisplay">
+						<div id="pieceMeta">
+							<h1>Ryan / Orion Stickers</h1>
+							<ul>
+								<li style="list-style: none;">Sticker Set</li>
+								<li>2 Characters, Lighting, Distortion</li>
+							</ul>
 						</div>
-						<div class="exampleItem">
-							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
+
+						<div id="piece">
+							<img src="" alt="example">
 						</div>
-						<div class="exampleItem">
-							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
-						</div>
-						<div class="exampleItem">
-							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
-						</div>
-						<div class="exampleItem">
-							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
-						</div>
+
+						<button id="closeGallery" onclick="ShowGallery('Stickers/2chars/lit.png');">
+							<img src="./Graphics/Estimator/Clear.png">
+							<p>Close</p>
+						</button>
 					</div>
-					<div class="exampleCell">
+				</div>
+				<div id="galleryMask">
+					<div class="exampleGroup">
+						<h2>Sticker Sets</h2>
+						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
+							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
+						</button>
+						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
+							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
+						</button>
+						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
+							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
+						</button>
+						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
+							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
+						</button>
+						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
+							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
+						</button>
+					</div>
+					<div class="exampleGroup">
 						<h2>Stickers As Comics</h2>
-						<div class="exampleItem">
+						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
 							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
-						</div>
-						<div class="exampleItem">
+						</button>
+						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
 							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
-						</div>
-						<div class="exampleItem">
+						</button>
+						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
 							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
-						</div>
+						</button>
 					</div>
 				</div>
 			</div>
@@ -150,7 +168,7 @@
 			<h1>ROADMAP</h1>
 			<p class="sideTitle rt" id="localTime" onclick="SwapTimeFormat();"></p>
 		</div>
-		<div id="roadMap" class="drag">
+		<div id="roadMap" class="dragArea">
 			<div id="mapDrag" class="dragContent">
 				<div class="columnBackground">
 					<div class="roadColumn"><p class="dateStamp"></p></div>
@@ -241,8 +259,9 @@
 		</div>
 	</body>
 
-	<script src="./JS/drag.js?version = 1.1.1"></script>
+	<script src="./JS/drag.js?version = 2.0.0"></script>
+	<script src="./JS/gallery.js?version = 0.0.1"></script>
 	<script src="./JS/editor.js?version = 1.0.0"></script>
 	<script src="./JS/mapStrips.js?version = 1.2.1"></script>
-	<script src="./JS/roadmap.js?version = 1.5.3"></script>
+	<script src="./JS/roadmap.js?version = 1.6.0"></script>
 </html>

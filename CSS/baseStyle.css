@@ -37,6 +37,27 @@ button, select {
 	padding: 4px;
 	cursor: pointer;
 }
+
+button:not(.purgeChange, .exampleItem) {
+	overflow: hidden;
+	display: flex;
+	gap: 4px;
+
+	padding: 0px;
+}
+button:not(.purgeChange, .exampleItem) p {
+	position: relative;
+	
+	margin: 0px;
+	padding: 5px;
+}
+button:not(.purgeChange, .exampleItem) img {
+	background-color: rgba(0, 0, 0, 0.5);
+
+	width: 18px;
+	padding: 7px;
+}
+
 select {
 	background: grey;
 	font-family: "Rajdhani Semi";
@@ -90,13 +111,13 @@ input[type="text"]::placeholder {
 	border-top-left-radius: 4px;
 }
 
-.drag {
+.dragArea {
 	position: relative;
 	overflow: hidden;
 	
 	cursor: grab;
 }
-.drag * {
+.dragArea * {
 	user-select: none;
 	-webkit-user-drag: none;
 }

@@ -1,9 +1,19 @@
+#gallery {
+	color: white;
+	text-transform: uppercase;
+
+	position: relative;
+}
+
 #galleryContainer {
 	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 6%);
 	border: solid 4px transparent;
 	border-radius: 0px 0px 4px 4px;
 
 	height: 80vh;
+	display: block;
+
+	overflow-y: scroll;
 }
 #galleryMask {
 	padding-right: 4px;
@@ -12,11 +22,54 @@
 	flex-direction: column;
 	
 	gap: 4px 0px;
+}
 
+#focusedPiece {
+	background-color: rgba(0, 0, 0, 0.75);
+	backdrop-filter: blur(20px);
+	border-radius: 4px;
+	padding: 8px;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+	z-index: -1;
+
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+
+	overflow: hidden;
+	opacity: 0;
+}
+
+#pieceMeta {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#pieceMeta h1 {
+	font-size: 2.25em;
+	text-align: center;
+	margin: 0px;
+}
+#pieceMeta ul {
+	display: flex;
+	gap: 32px;
+
+	margin: 0px;
+	padding: 0px;
+}
+
+#closeGallery {
+	background-color: #ff0000;
 	width: 100%;
 }
 
-.exampleCell {
+.exampleGroup {
 	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 14%);
 	border-radius: 4px;
 	overflow: hidden;
@@ -26,25 +79,26 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 4px;
-}
 
-.exampleCell h2 {
-	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 14%);
-	border-radius: 0px 0px 4px 4px;
+	padding-top: 50px;
+}
+.exampleGroup h2 {
+	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 18%);
+	border-radius: 4px;
 	
 	display: block;
-	color: white;
 	
-	text-transform: uppercase;
+	text-align: center;
 	padding: 8px 12px;
 
 	position: absolute;
 	margin: 0px;
 	
-	top: 0px;
-	left: 16px;
-	right: 16px;
+	top: 4px;
+	left: 4px;
+	right: 4px;
 }
+
 .exampleItem {
 	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 20%);
 	border-radius: 4px;
@@ -54,7 +108,10 @@
 .exampleItem:nth-child(even) {
 	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 24%);
 }
-.exampleItem img {
+.exampleItem img, #piece img {
 	display: block;
 	margin: auto;
+
+	width: 100%;
+	max-width: fit-content;
 }

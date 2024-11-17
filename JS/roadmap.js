@@ -9,6 +9,11 @@ let colorTags = document.getElementsByClassName("state");
 let nameSearch = document.getElementById("nameSearch");
 let pacificTime = document.getElementById("localTime");
 
+let map = document.getElementById("roadMap");
+let mapDrag = document.getElementById("mapDrag");
+
+new Draggable(map, mapDrag);
+
 let today = new Date();
 today.setUTCHours(today.getUTCHours() - 8);
 

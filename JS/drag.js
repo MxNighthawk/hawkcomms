@@ -79,12 +79,3 @@ class Draggable
 			this.draggable.style.setProperty("top", `0px`);
 	}
 }
-
-let map = document.getElementById("roadMap");
-let mapDrag = document.getElementById("mapDrag");
-
-let galleryContainer = document.getElementById("galleryContainer");
-let galleryMask = document.getElementById("galleryMask");
-
-new Draggable(map, mapDrag);
-new Draggable(galleryContainer, galleryMask, 4);
