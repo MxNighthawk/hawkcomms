@@ -94,8 +94,11 @@ input[type="text"]::placeholder {
 	position: relative;
 	overflow: hidden;
 	
-	user-select: none;
 	cursor: grab;
+}
+.drag * {
+	user-select: none;
+	-webkit-user-drag: none;
 }
 .dragContent {
 	position: relative;
@@ -104,6 +107,17 @@ input[type="text"]::placeholder {
 
 :focus {
 	outline: none;
+}
+
+#editorTools ::-webkit-scrollbar, #galleryContainer::-webkit-scrollbar{
+	background: rgba(0, 0, 0, 0.75);
+	border-radius: 4px;
+	
+	width: 8px;
+}
+#editorTools ::-webkit-scrollbar-thumb, #galleryContainer::-webkit-scrollbar-thumb{
+	border-radius: 4px;
+	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 25%);
 }
 
 @font-face {

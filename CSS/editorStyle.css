@@ -128,17 +128,6 @@
 	list-style: circle;
 }
 
-#editorTools ::-webkit-scrollbar {
-	background: rgba(0, 0, 0, 0.75);
-	border-radius: 4px;
-	
-	width: 8px;
-}
-#editorTools ::-webkit-scrollbar-thumb {
-	border-radius: 4px;
-	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 25%);
-}
-
 .purgeChange {
 	background: #ff0000;
 

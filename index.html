@@ -6,29 +6,69 @@
 		<title>Commissions</title>
 
 		<link href="./CSS/baseStyle.css" type="text/css" rel="stylesheet">
-		<link href="./CSS/estimatorStyle.css" type="text/css" rel="stylesheet">
+		<link href="./CSS/exampleStyle.css" type="text/css" rel="stylesheet">
+		<link href="./CSS/editorStyle.css" type="text/css" rel="stylesheet">
 		<link href="./CSS/roadmapStyle.css" type="text/css" rel="stylesheet">
+
 	</head>
 	<body onload="PrepSizes();AddCell();SetEditorStyles();SetRangeStyles();DisplayPacificTime();">
-		<h1>VERSION 0.18.2 - 11/12/2024, 10:05 PM PT</h1>
+		<h1>VERSION 0.19.1b - 11/17/2024, 12:39 AM PT</h1>
 		<code>
-			The editor will now visually display style previews whenever you make a change!
-			<br>- Changes are applied visually, giving an idea of what the sticker styles will look like.
-			<br>- Selecting styles will display the type the sticker(s) has/have.
-			<br>- All except Custom outline styles are visible.
-			<br><br>
+			The Estimator has been renamed to the Commission Editor. Although this gives an estimate, it's primary way of doing this
+			is by giving the user an editor to customize parts of their commission request.
+			<br>
 
-			The site is finally back on GitHub Pages!
-			<br>- Updating has been refined to avoid caching (remembering) old page. All you have to do now is a normal reload.
+			<br>- Restructured how Draggables work. Now, they are Object-Oriented for better use and creation on the back-end.
+			<br>- Began adding in the Gallery, which at the moment you can just drag around. Soon you'll be able to touch and expand examples.
 		</code>
+		
+		<div id="gallery">
+			<div class="sectionTitle">
+				<p class="sideTitle lt">Take a look at what I can do!</p>
+				<h1>EXAMPLES</h1>
+				<p class="sideTitle rt">Click/Tap an example to expand</p>
+			</div>
+			<div id="galleryContainer" class="drag">
+				<div id="galleryMask" class="dragContent">
+					<div class="exampleCell">
+						<h2>Sticker Sets</h2>
+						<div class="exampleItem">
+							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
+						</div>
+						<div class="exampleItem">
+							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
+						</div>
+						<div class="exampleItem">
+							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
+						</div>
+						<div class="exampleItem">
+							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
+						</div>
+						<div class="exampleItem">
+							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
+						</div>
+					</div>
+					<div class="exampleCell">
+						<h2>Stickers As Comics</h2>
+						<div class="exampleItem">
+							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
+						</div>
+						<div class="exampleItem">
+							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
+						</div>
+						<div class="exampleItem">
+							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-		<h2>EXAMPLES</h2>
-		<p>Take a look at some works I've done already!</p>
-
+		<br>
 		<div id="estimator">
 			<div class="sectionTitle">
-				<h1>ESTIMATOR EDITOR</h1>
-				<p class="sideTitle rt">Use the Editor get an estimate.</p>
+				<h1>COMMISSION EDITOR</h1>
+				<p class="sideTitle rt">Use the Editor to customize your commission.</p>
 			</div>
 			<div id="editorTools">
 				<div id="editor" class="MatrixMode">
@@ -94,11 +134,11 @@
 					</div>
 					<button id="addToTotal" onclick="AddToReceipt();">
 						<img src="./Graphics/Estimator/Add.png">
-						<p>Add Editor Changes</p>
+						<p>Add Customizations</p>
 					</button>
 					<button id="clearEstimate" onclick="ClearReceipt();">
 						<img src="./Graphics/Estimator/Clear.png">
-						<p>Clear Summary</p>
+						<p>Clear Customizations</p>
 					</button>
 				</div>
 			</div>
@@ -106,9 +146,9 @@
 
 		<br>
 		<div class="sectionTitle">
-			<p class="sideTitle lt" id="localTime" onclick="SwapTimeFormat();"></p>
+			<p class="sideTitle lt">Drag and expand strips, or use fitlers to search.</p>
 			<h1>ROADMAP</h1>
-			<p class="sideTitle rt">Drag and expand strips, or use fitlers to search.</p>
+			<p class="sideTitle rt" id="localTime" onclick="SwapTimeFormat();"></p>
 		</div>
 		<div id="roadMap" class="drag">
 			<div id="mapDrag" class="dragContent">
@@ -202,7 +242,7 @@
 	</body>
 
 	<script src="./JS/drag.js?version = 1.1.1"></script>
-	<script src="./JS/estimator.js?version = 1.1.0"></script>
+	<script src="./JS/editor.js?version = 1.0.0"></script>
 	<script src="./JS/mapStrips.js?version = 1.2.1"></script>
 	<script src="./JS/roadmap.js?version = 1.5.3"></script>
 </html>

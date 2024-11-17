@@ -1,0 +1,60 @@
+#galleryContainer {
+	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 6%);
+	border: solid 4px transparent;
+	border-radius: 0px 0px 4px 4px;
+
+	height: 80vh;
+}
+#galleryMask {
+	padding-right: 4px;
+
+	display: flex;
+	flex-direction: column;
+	
+	gap: 4px 0px;
+
+	width: 100%;
+}
+
+.exampleCell {
+	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 14%);
+	border-radius: 4px;
+	overflow: hidden;
+	
+	position: relative;
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+}
+
+.exampleCell h2 {
+	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 14%);
+	border-radius: 0px 0px 4px 4px;
+	
+	display: block;
+	color: white;
+	
+	text-transform: uppercase;
+	padding: 8px 12px;
+
+	position: absolute;
+	margin: 0px;
+	
+	top: 0px;
+	left: 16px;
+	right: 16px;
+}
+.exampleItem {
+	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 20%);
+	border-radius: 4px;
+	
+	flex: 1 1 25%;
+}
+.exampleItem:nth-child(even) {
+	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 24%);
+}
+.exampleItem img {
+	display: block;
+	margin: auto;
+}

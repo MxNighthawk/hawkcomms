@@ -3,8 +3,7 @@
 //	PROGRAMMED BY: JESUS BARAJAS (AKA MXNIGHTHAWK / NIGHTHAWK / NIGHTHAWKDEV)
 //
 
-
-let estimator = document.getElementById("editor");
+let editor = document.getElementById("editor");
 let matrix = document.getElementById("editorView");
 let counter = document.getElementById("cellCounter");
 
@@ -140,7 +139,7 @@ class Sticker
 		this.#outline = document.createElement('img');
 		
 		this.#light.src = "./Graphics/Templates/Stickers/1char/lit.png";
-		this.#light.alt = "sticker";
+		this.#light.alt = "lighting";
 		this.#light.classList.add("templatePart");
 
 		this.#outline.src = "./Graphics/Templates/Stickers/1char/solid.png";
@@ -217,15 +216,15 @@ class Sticker
 	}
 	SetLightLayer()
 	{
-		this.#location = characterType.selectedIndex != 2 ? "1char" : "2chars";
+		this.#location = this.charactersPresent == 2 ? "2chars" : "1char";
 		
-		this.#light.src = `./Graphics/Templates/Stickers/${this.#location}/${lightingType.selectedIndex != 2 ? "lit" : "unlit"}.png`;
+		this.#light.src = `./Graphics/Templates/Stickers/${this.#location}/${this.lightingType != 1 ? "unlit" : "lit"}.png`;
 	}
 	SetOutlineLayer()
 	{
-		this.#location = characterType.selectedIndex != 2 ? "1char" : "2chars";
+		this.#location = this.charactersPresent == 2 ? "2chars" : "1char";
 		
-		this.#outline.src = `./Graphics/Templates/Stickers/${this.#location}/${outlines[outlineType.selectedIndex]}.png`;
+		this.#outline.src = `./Graphics/Templates/Stickers/${this.#location}/${outlines[this.outlineStyle]}.png`;
 	}
 }
 class SAC extends Sticker
@@ -364,24 +363,27 @@ class Change
 
 function SetParameters(l, o, c)
 {
-	for(let i = 0; l == true && i < selectedCells.length; i++)
-	{
-		selectedCells[i].lightingType = lightingType.selectedIndex;
-		selectedCells[i].SetLightLayer();
-	}
+	if(l)
+		for(let i = 0; i < selectedCells.length; i++)
+		{
+			selectedCells[i].lightingType = lightingType.selectedIndex;
+			selectedCells[i].SetLightLayer();
+		}
 
-	for(let i = 0; o == true && i < selectedCells.length; i++)
-	{
-		selectedCells[i].outlineStyle = outlineType.selectedIndex;
-		selectedCells[i].SetOutlineLayer();
-	}
+	if(o)
+		for(let i = 0; i < selectedCells.length; i++)
+		{
+			selectedCells[i].outlineStyle = outlineType.selectedIndex;
+			selectedCells[i].SetOutlineLayer();
+		}
 
-	for(let i = 0; c == true && i < selectedCells.length; i++)
-	{
-		selectedCells[i].charactersPresent = characterType.selectedIndex;
-		selectedCells[i].SetLightLayer();
-		selectedCells[i].SetOutlineLayer();
-	}
+	if(c)
+		for(let i = 0; i < selectedCells.length; i++)
+		{
+			selectedCells[i].charactersPresent = characterType.selectedIndex;
+			selectedCells[i].SetLightLayer();
+			selectedCells[i].SetOutlineLayer();
+		}
 
 	for (let i = 0; i < selectedCells.length; i++) {
 		const element = selectedCells[i];
@@ -397,7 +399,7 @@ function SetEditorStyles()
 	outlineType.style.setProperty("opacity", selectedCells.length == 0 ? 0.25 : 1);
 	characterType.style.setProperty("opacity", selectedCells.length == 0 ? 0.25 : 1);
 
-	estimator.style.setProperty("--selectStates", selectedCells.length == 0 ? "none" : "initial");
+	editor.style.setProperty("--selectStates", selectedCells.length == 0 ? "none" : "initial");
 
 	addCells.style.setProperty("opacity", cells.length == limits[typeID] ? 0.25 : 1);
 	deleteCells.style.setProperty("opacity", cells.length == 1 ? 0.25 : 1);
@@ -582,8 +584,8 @@ function SwapModes()
 	}
 
 	cells = [];
-	estimator.classList = [];
-	estimator.classList.add(typeID == 0 ? "MatrixMode" : "ColumnMode");
+	editor.classList = [];
+	editor.classList.add(typeID == 0 ? "MatrixMode" : "ColumnMode");
 
 	AddCell();
 	SetEditorStyles();

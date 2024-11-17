@@ -3,17 +3,11 @@
 //	PROGRAMMED BY: JESUS BARAJAS (AKA MXNIGHTHAWK / NIGHTHAWK / NIGHTHAWKDEV)
 //
 
-let map = document.getElementById("roadMap");
-let mapDrag = document.getElementById("mapDrag");
 let dateStamps = document.getElementsByClassName("dateStamp");
 
 let colorTags = document.getElementsByClassName("state");
 let nameSearch = document.getElementById("nameSearch");
 let pacificTime = document.getElementById("localTime");
-
-let H_shift = 0, H_lastX = 0;
-let V_shift = 0, V_lastY;
-let H_lastShift = 0, V_lastShift = 0;
 
 let today = new Date();
 today.setUTCHours(today.getUTCHours() - 8);
@@ -89,7 +83,6 @@ function PrepSizes()
 	}
 }
 
-GenerateDrag(map, mapDrag, H_shift, H_lastX, V_shift, V_lastY, H_lastShift, V_lastShift);
 map.addEventListener("click", (e) => 
 {
 	clearInterval(resize);

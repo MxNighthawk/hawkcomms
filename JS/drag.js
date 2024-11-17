@@ -3,58 +3,88 @@
 //	PROGRAMMED BY: JESUS BARAJAS (AKA MXNIGHTHAWK / NIGHTHAWK / NIGHTHAWKDEV)
 //
 
-function GenerateDrag(elmement, draggable, xShift, lastX, yShift, lastY, lastXShift, lastYShift, focusBlock = null)
+class Draggable
 {
-	elmement.addEventListener("mousemove", (e) =>
-	{
-		DragRoadmap(e, false);
-	});
-	elmement.addEventListener("touchstart", (e) =>
-	{
-		xShift = lastX = e.touches[0].pageX;
-		yShift = lastY = e.touches[0].pageY;
-	});
-	elmement.addEventListener("touchmove", (e) =>
-	{
-		e.preventDefault();
-		DragRoadmap(e, true);
-	});
-	
-	function DragRoadmap(e, isTouch)
-	{
-		if(focusBlock != null && focusBlock.state)
-			return;
+	elmement;
+	draggable;
 
+	xShift = 0;
+	lastX = 0;
+
+	yShift = 0;
+	lastY;
+
+	lastXShift = 0;
+	lastYShift = 0;
+
+	rightClamp = 0;
+
+	constructor(dragContainer, dragItems, rightShift = 0)
+	{
+		this.elmement = dragContainer;
+		this.draggable = dragItems;
+		this.rightClamp = rightShift;
+		this.GenerateDrag();
+	}
+	GenerateDrag()
+	{
+		this.elmement.addEventListener("mousemove", (e) =>
+		{
+			this.DragRoadmap(e, false);
+		});
+		this.elmement.addEventListener("touchstart", (e) =>
+		{
+			this.xShift = this.lastX = e.touches[0].pageX;
+			this.yShift = this.lastY = e.touches[0].pageY;
+		});
+		this.elmement.addEventListener("touchmove", (e) =>
+		{
+			e.preventDefault();
+			this.DragRoadmap(e, true);
+		});
+	}
+
+	DragRoadmap(e, isTouch)
+	{
 		let x = isTouch ? e.touches[0].pageX : e.pageX;
 		let y = isTouch ? e.touches[0].pageY : e.pageY;
 		
 		if(!isTouch && e.buttons != 1)
 		{
-			xShift = lastX = x;
-			yShift = lastY = y;
+			this.xShift = this.lastX = x;
+			this.yShift = this.lastY = y;
 			return;
 		}
 		
-		if(draggable.scrollWidth > elmement.clientWidth)
+		if(this.draggable.scrollWidth > this.elmement.clientWidth)
 		{
-			xShift = x - lastX;
-			lastX = x;
-			lastXShift += xShift;
-			lastXShift = Clamp(lastXShift, elmement.clientWidth - draggable.scrollWidth, 0);
-			draggable.style.setProperty("left", `${lastXShift}px`);
+			this.xShift = x - this.lastX;
+			this.lastX = x;
+			this.lastXShift += this.xShift;
+			this.lastXShift = Clamp(this.lastXShift, this.elmement.clientWidth - this.draggable.scrollWidth + this.rightClamp, 0);
+			this.draggable.style.setProperty("left", `${this.lastXShift}px`);
 		}
-		else if(draggable.clientWidth < elmement.clientWidth)
-			draggable.style.setProperty("left", `0px`);
+		else if(this.draggable.clientWidth < this.elmement.clientWidth)
+			this.draggable.style.setProperty("left", `0px`);
 
-		if(draggable.scrollHeight > elmement.clientHeight)
+		if(this.draggable.scrollHeight > this.elmement.clientHeight)
 		{
-			yShift = y - lastY;
-			lastY = y;
-			lastYShift += yShift;
-			lastYShift = Clamp(lastYShift, elmement.clientHeight - draggable.scrollHeight, 0);
-			draggable.style.setProperty("top", `${lastYShift}px`);
+			this.yShift = y - this.lastY;
+			this.lastY = y;
+			this.lastYShift += this.yShift;
+			this.lastYShift = Clamp(this.lastYShift, this.elmement.clientHeight - this.draggable.scrollHeight, 0);
+			this.draggable.style.setProperty("top", `${this.lastYShift}px`);
 		}
-		else if(draggable.clientHeight < elmement.clientHeight)
-			draggable.style.setProperty("top", `0px`);
+		else if(this.draggable.clientHeight < this.elmement.clientHeight)
+			this.draggable.style.setProperty("top", `0px`);
 	}
 }
+
+let map = document.getElementById("roadMap");
+let mapDrag = document.getElementById("mapDrag");
+
+let galleryContainer = document.getElementById("galleryContainer");
+let galleryMask = document.getElementById("galleryMask");
+
+new Draggable(map, mapDrag);
+new Draggable(galleryContainer, galleryMask, 4);
