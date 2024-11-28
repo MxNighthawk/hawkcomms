@@ -36,7 +36,7 @@ class Draggable
 		{
 			this.xShift = this.lastX = e.touches[0].pageX;
 			this.yShift = this.lastY = e.touches[0].pageY;
-		});
+		}, {passive: true});
 		this.elmement.addEventListener("touchmove", (e) =>
 		{
 			e.preventDefault();

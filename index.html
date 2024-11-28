@@ -13,27 +13,48 @@
 
 	</head>
 	<body onload="PrepSizes();AddCell();SetEditorStyles();SetRangeStyles();DisplayPacificTime();">
-		<h1>VERSION 0.19.2b - 11/17/2024, 11:25 AM PT</h1>
+		<h1>VERSION 0.19.3 - 11/17/2024, 2:15 AM PT</h1>
 		<code>
-			The gallery has its focus overlay working. Tap / Click on an image to view its information.
-			<br>
-			<br>- The gallery is now a scrollable item, instead of a draggable one.
+			The gallery, now named the Portfolio, has all it's elments complete! You can now...
+			<br>- Filter base on commission / work type
+			<br>- Tap / Click on a piece to get a detailed view, including styles and piece names
+			<br>- Follow credits back to the creator(s) of the character(s)
+			
+			<br><br>
+			With this change also came something important: NSFW safety.
+			<br>- NSFW Artists can commission, but content will still be SFW only
+			<br>- Portfolio pieces of characters from NSFW artists without SFW links have redirection safeguards
+
+			<br><br>
+			Some minor tweaks have been added as well:
+			<br>- Editor animatons now have easing improvements
+			<br>- The Estimate Editor has been renamed to the Commission Editor
+			<br>- Style optimizations have been made to remove reduntant instructions
+			<br><br>
 		</code>
 		
 		<div id="gallery">
 			<div class="sectionTitle">
 				<p class="sideTitle lt">Take a look at what I can do!</p>
-				<h1>EXAMPLES</h1>
+				<h1>PORTFOLIO</h1>
 				<p class="sideTitle rt">Click/Tap an example to expand</p>
 			</div>
+			
+			<div id="galleryFilters">
+				<button class="category" onclick="ToggleCategory(0);">
+					<p>Stickers Sets</p>
+				</button>
+				<button class="category" onclick="ToggleCategory(1);">
+					<p>Stickers as Comics</p>
+				</button>
+			</div>
+			
 			<div id="galleryContainer">
-				<div id="focusedPiece">
-					<div id="focusedDisplay">
+				<div id="focusedDisplay">
+					<div id="focusedPiece">
 						<div id="pieceMeta">
 							<h1>Ryan / Orion Stickers</h1>
 							<ul>
-								<li style="list-style: none;">Sticker Set</li>
-								<li>2 Characters, Lighting, Distortion</li>
 							</ul>
 						</div>
 
@@ -41,44 +62,39 @@
 							<img src="" alt="example">
 						</div>
 
-						<button id="closeGallery" onclick="ShowGallery('Stickers/2chars/lit.png');">
-							<img src="./Graphics/Estimator/Clear.png">
+						<button id="creditLink" onclick="LinkBackWarning();">
+							<img src="./Graphics/Icons/Direct.png">
+							<p>Character Creator (Warning!)</p>
+						</button>
+						<button id="closeGallery" onclick="ShowGallery();">
+							<img src="./Graphics/Icons/Clear.png">
 							<p>Close</p>
 						</button>
 					</div>
 				</div>
-				<div id="galleryMask">
-					<div class="exampleGroup">
-						<h2>Sticker Sets</h2>
-						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
-							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
-						</button>
-						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
-							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
-						</button>
-						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
-							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
-						</button>
-						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
-							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
-						</button>
-						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
-							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
-						</button>
-					</div>
-					<div class="exampleGroup">
-						<h2>Stickers As Comics</h2>
-						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
-							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
-						</button>
-						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
-							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
-						</button>
-						<button class="exampleItem" type="button" onclick="ShowGallery('Stickers/2chars/lit.png');">
-							<img src="./Graphics/Templates/Stickers/2chars/lit.png">
-						</button>
-					</div>
+				<div id="galleryPieces">
 				</div>
+			</div>
+		</div>
+
+		<div id="contentWarning">
+			<div id="warnings">
+				<h1>- WARNING -</h1>
+				<p>
+					The character(s) present belong to a NSFW artist who doesn't have a SFW account.
+					<br>"Proceed To Link" will take you to their NSFW account instead.
+					<br><br>If you are <b style="color: orange;">under 18</b>, please <b style="color: orange;">Press the "Back To Gallery" button</b> to go back to the gallery!
+				</p>
+
+				<hr>
+				<button id="creditCancel" onclick="DisposeWarning();">
+					<img src="./Graphics/Icons/Direct.png">
+					<p>Back To Gallery</p>
+				</button>
+				<button id="creditProceed" onclick="OpenRedirection();">
+					<img src="./Graphics/Icons/Warning.png">
+					<p>Proceed to Link</p>
+				</button>
 			</div>
 		</div>
 
@@ -95,17 +111,17 @@
 						<h2 id="estimatePrice">ESTIMATE: $00.00</h2>
 					</div>
 					<div id="stickerParameters">
-						<select id="charCount" oninput="SetParameters(false, false, true);">
+						<select aria-label="Character Count" id="charCount" oninput="SetParameters(false, false, true);">
 							<option disabled selected>Characters Present</option>
 							<option>1 Character</option>
 							<option>2 Characters, [+20%]</option>
 						</select>
-						<select id="lighting" oninput="SetParameters(true, false, false);">
+						<select aria-label="Lighting Style" id="lighting" oninput="SetParameters(true, false, false);">
 							<option disabled selected>Lighting Styles</option>
 							<option>Simple Lighting</option>
 							<option>Unlit, [-15%]</option>
 						</select>
-						<select id="rimStyle" oninput="SetParameters(false, true, false);">
+						<select aria-label="Outline Style" id="rimStyle" oninput="SetParameters(false, true, false);">
 							<option disabled selected>Outline Styles</option>
 							<option>Solid</option>
 							<option>Distortion</option>
@@ -122,19 +138,19 @@
 					</div>
 					<div id="stickerControls">
 						<button id="addCell" onclick="AddCell();">
-							<img src="./Graphics/Estimator/Add.png">
+							<img src="./Graphics/Icons/Add.png">
 							<p>Add Sticker</p>
 						</button>
 						<button id="selectCell" onclick="SelectAll();">
-							<img src="./Graphics/Estimator/Select All.png">
+							<img src="./Graphics/Icons/Select All.png">
 							<p>Select All</p>
 						</button>
 						<button id="deleteCell" onclick="DeleteCells();">
-							<img src="./Graphics/Estimator/Delete.png">
+							<img src="./Graphics/Icons/Delete.png">
 							<p>Delete Sticker(s)</p>
 						</button>
 						<button id="deselectCell" onclick="DeselectAll();">
-							<img src="./Graphics/Estimator/Deselect All.png">
+							<img src="./Graphics/Icons/Deselect All.png">
 							<p>Deselect All</p>
 						</button>
 					</div>
@@ -151,11 +167,11 @@
 						</div>
 					</div>
 					<button id="addToTotal" onclick="AddToReceipt();">
-						<img src="./Graphics/Estimator/Add.png">
+						<img src="./Graphics/Icons/Add.png">
 						<p>Add Customizations</p>
 					</button>
 					<button id="clearEstimate" onclick="ClearReceipt();">
-						<img src="./Graphics/Estimator/Clear.png">
+						<img src="./Graphics/Icons/Clear.png">
 						<p>Clear Customizations</p>
 					</button>
 				</div>
@@ -251,16 +267,16 @@
 			<div id="mapFilters">
 				<input id="nameSearch" type="text" autocomplete="off" oninput="FilterByName();" placeholder="Enter Username or Ticket #">
 				<div id="colorFilters">
-					<button onclick="FilterByColor(0)" class="state" style="--colorRotation: 104;">Working On / Focused</button>
-					<button onclick="FilterByColor(1)" class="state" style="--colorRotation: 15;">Delayed</button>
-					<button onclick="FilterByColor(2)" class="state" style="--colorRotation: 220;">In Queue / Received</button>
+					<button onclick="FilterByColor(0)" class="state" style="--colorRotation: 104;"><p>Working On / Focused</p></button>
+					<button onclick="FilterByColor(1)" class="state" style="--colorRotation: 15;"><p>Delayed</p></button>
+					<button onclick="FilterByColor(2)" class="state" style="--colorRotation: 220;"><p>In Queue / Received</p></button>
 				</div>
 			</div>
 		</div>
 	</body>
 
 	<script src="./JS/drag.js?version = 2.0.0"></script>
-	<script src="./JS/gallery.js?version = 0.0.1"></script>
+	<script src="./JS/gallery.js?version = 1.0.0"></script>
 	<script src="./JS/editor.js?version = 1.0.0"></script>
 	<script src="./JS/mapStrips.js?version = 1.2.1"></script>
 	<script src="./JS/roadmap.js?version = 1.6.0"></script>

@@ -204,24 +204,14 @@
 
 .state {
 	background-color: hsl(var(--colorRotation), 100%, 41%);
-	opacity: 1;
-
-	backdrop-filter: blur(10px);
-	border-radius: 4px;
-	cursor: pointer;
-
-	font-family: "Rajdhani Bold";
 	font-size: 14px;
-
-	text-shadow: 0px 0px 4px black;
-	text-transform: uppercase;
-
-	margin: 0px;
-	padding: 6px 12px;
-
-	width: 100%;
-	min-width: max-content;
+	
 	height: min-content;
+	flex: auto;
+}
+.state p {
+	width: 100%;
+	text-align: center;
 }
 
 @media (max-width: 500px) {

@@ -1,8 +1,9 @@
-#gallery {
-	color: white;
-	text-transform: uppercase;
+:root {
+	--outlineColor: blue;
+}
 
-	position: relative;
+#gallery, #contentWarning {
+	color: white;
 }
 
 #galleryContainer {
@@ -13,18 +14,21 @@
 	height: 80vh;
 	display: block;
 
+	position: relative;
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
-#galleryMask {
+#galleryPieces {
 	padding-right: 4px;
 
 	display: flex;
-	flex-direction: column;
+	flex-wrap: wrap;
 	
-	gap: 4px 0px;
+	height: max-content;
+	gap: 4px;
 }
 
-#focusedPiece {
+#focusedDisplay, #contentWarning {
 	background-color: rgba(0, 0, 0, 0.75);
 	backdrop-filter: blur(20px);
 	border-radius: 4px;
@@ -45,6 +49,46 @@
 	overflow: hidden;
 	opacity: 0;
 }
+#focusedDisplay {
+	text-transform: uppercase;
+}
+#focusedPiece {
+	display: flex;
+	flex-direction: column;
+
+	opacity: 0;
+	gap: 4px;
+}
+
+#contentWarning {
+	background-color: rgba(0, 0, 0, 0.9);
+	position: fixed;
+}
+#contentWarning button {
+	width: 100%;
+}
+
+#warnings {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+#warnings h1 {
+	font-size: 3em;
+
+	text-align: center;
+	margin: 0px;
+}
+#warnings p:not(button > p) {
+	font-size: 1.25em;
+
+	text-align: center;
+}
+#warnings hr {
+	border: dashed 2px white;
+	margin: 32px auto;
+	width: 100%;
+}
 
 #pieceMeta {
 	display: flex;
@@ -64,54 +108,86 @@
 	padding: 0px;
 }
 
-#closeGallery {
-	background-color: #ff0000;
-	width: 100%;
+#closeGallery, #creditProceed {
+	background-color: #f00;
+}
+#creditCancel {
+	background-color: #29b929;
+}
+#creditLink {
+	background-color: #00f;
 }
 
-.exampleGroup {
+#galleryFilters {
 	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 14%);
-	border-radius: 4px;
-	overflow: hidden;
+	padding: 4px;
 	
-	position: relative;
-
 	display: flex;
-	flex-wrap: wrap;
 	gap: 4px;
-
-	padding-top: 50px;
 }
-.exampleGroup h2 {
-	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 18%);
-	border-radius: 4px;
-	
-	display: block;
-	
-	text-align: center;
-	padding: 8px 12px;
 
-	position: absolute;
-	margin: 0px;
-	
-	top: 4px;
-	left: 4px;
-	right: 4px;
+.category {
+	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 30%);
+	border: solid 2px hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 34%);
+	border-radius: 20px;
+
+	flex: 1 1 50%;
+}
+.category p {
+	margin: auto;
+	font-size: 1.2em;
 }
 
 .exampleItem {
 	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 20%);
 	border-radius: 4px;
 	
-	flex: 1 1 25%;
+	flex: 1 1 33%;
+	max-height: 320px;
 }
 .exampleItem:nth-child(even) {
 	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 24%);
 }
-.exampleItem img, #piece img {
+.exampleItem img {
 	display: block;
 	margin: auto;
 
+	max-height: 100%;
 	width: 100%;
 	max-width: fit-content;
+	
+	user-select: none;
+	-webkit-user-drag: none;
+}
+
+#piece {
+	margin: 16px 0px;
+
+	width: 100%;
+	max-width: 768px;
+
+	filter: drop-shadow(0px 0px 4px var(--outlineColor));
+}
+#piece img {
+	box-sizing: border-box;
+	display: block;
+	margin: auto;
+	
+
+	width: 100%;
+}
+
+@media (max-width: 425px) {
+	#galleryFilters {
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 360px) {
+	#pieceMeta h1 {
+		font-size: 1.7em;
+	}
+	#pieceMeta ul {
+		font-size: 0.9em;
+	}
 }

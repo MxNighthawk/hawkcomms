@@ -38,20 +38,20 @@ button, select {
 	cursor: pointer;
 }
 
-button:not(.purgeChange, .exampleItem) {
+button:not(.purgeChange, .exampleItem, .category) {
 	overflow: hidden;
 	display: flex;
 	gap: 4px;
 
 	padding: 0px;
 }
-button:not(.purgeChange, .exampleItem) p {
+button:not(.purgeChange, .exampleItem, .category) p {
 	position: relative;
 	
 	margin: 0px;
 	padding: 5px;
 }
-button:not(.purgeChange, .exampleItem) img {
+button:not(.purgeChange, .exampleItem, .category) img {
 	background-color: rgba(0, 0, 0, 0.5);
 
 	width: 18px;

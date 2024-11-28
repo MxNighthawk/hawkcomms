@@ -95,7 +95,7 @@ let cellTiming =
 {
 	duration: 250,
 	iterations: 1,
-	easing: "ease-out"
+	easing: "ease"
 };
 let deleteTime =
 {
