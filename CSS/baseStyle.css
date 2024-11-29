@@ -143,13 +143,13 @@ input[type="text"]::placeholder {
 
 @font-face {
 	font-family: "Rajdhani Bold";
-	src: url("../Font/Rajdhani-Bold.ttf");
+	src: url("../Font/Rajdhani-Bold.ttf") format('truetype');
 }
 @font-face {
 	font-family: "Rajdhani";
-	src: url("../Font/Rajdhani-Medium.ttf");
+	src: url("../Font/Rajdhani-Medium.ttf") format('truetype');
 }
 @font-face {
 	font-family: "Rajdhani Semi";
-	src: url("../Font/Rajdhani-SemiBold.ttf");
+	src: url("../Font/Rajdhani-SemiBold.ttf") format('truetype');
 }

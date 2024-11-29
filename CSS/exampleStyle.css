@@ -65,13 +65,13 @@
 	position: fixed;
 }
 #contentWarning button {
-	width: 100%;
+	flex: 1 1 100%;
 }
 
 #warnings {
 	display: flex;
 	flex-direction: column;
-	gap: 4px;
+	gap: 8px;
 }
 #warnings h1 {
 	font-size: 3em;
@@ -86,7 +86,10 @@
 }
 #warnings hr {
 	border: dashed 2px white;
+	
 	margin: 32px auto;
+	margin-bottom: 0px;
+
 	width: 100%;
 }
 
@@ -108,14 +111,38 @@
 	padding: 0px;
 }
 
-#closeGallery, #creditProceed {
+#closeGallery, #creditProceed, #creditLink {
+	height: 40px;
+}
+#closeGallery {
 	background-color: #f00;
 }
-#creditCancel {
-	background-color: #29b929;
+#creditProceed {
+	background-color: #000087;
 }
 #creditLink {
 	background-color: #00f;
+}
+#closeGallery img, #creditProceed img, #creditLink img {
+	width: 22px;
+	padding: 9px;
+}
+#closeGallery p, #creditProceed p, #creditLink p {
+	font-size: 18px;
+	padding: 8px 5px;
+}
+
+#creditCancel {
+	height: 48px;
+	background-color: #1e9d1e;
+}
+#creditCancel img {
+	width: 24px;
+	padding: 12px;
+}
+#creditCancel p {
+	font-size: 21px;
+	padding: 10px 5px;
 }
 
 #galleryFilters {
