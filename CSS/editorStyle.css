@@ -10,12 +10,6 @@
 	width: 100%;
 	max-width: max-content;
 }
-#estimator .sectionTitle {
-	grid-template-columns: 0.5fr 1fr;
-}
-#estimator .sectionTitle h1 {
-	border-radius: 4px 4px 0px 0px;
-}
 
 #editorTools {
 	display: flex;
@@ -86,46 +80,6 @@
 }
 #commissionList li {
 	margin-bottom: 8px;
-}
-
-.editorChange {
-	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 20%);
-	border-radius: 4px;
-	
-	padding: 4px 0px;
-}
-.editorChange summary {
-	position: relative;
-	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 12%);
-	border-radius: 4px;
-
-	font-size: 1.1em;
-
-	padding: 8px;
-	margin: 0px 4px;
-}
-.editorChange article {
-	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 10%);
-	border-radius: 4px;
-	
-	padding: 4px;
-	margin: 4px;
-	margin-bottom: 0px;
-	
-	width: calc(320px - 32px);
-	text-wrap: wrap;
-}
-.editorChange h3 {
-	margin: 8px;
-	margin-bottom: 0px;
-}
-.editorChange ul {
-	padding: 8px;
-	padding-left: 28px;
-
-	margin: 0px;
-
-	list-style: circle;
 }
 
 .purgeChange {
