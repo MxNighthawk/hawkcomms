@@ -59,8 +59,7 @@
 }
 #totalContainer {
 	position: relative;
-	height: calc(var(--matrixSize) + 35px);
-
+	
 	display: flex;
 }
 #commissionList {
