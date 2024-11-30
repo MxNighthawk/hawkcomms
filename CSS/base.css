@@ -8,6 +8,10 @@ body {
 	overscroll-behavior: contain;
 	scroll-behavior: smooth;
 }
+main {
+	min-height: 80vh;
+	overflow-x: hidden;
+}
 
 h1, h2 {
 	font-family: "Rajdhani Bold";
@@ -38,24 +42,59 @@ button, select {
 	cursor: pointer;
 }
 
-button:not(.purgeChange, .exampleItem, .category) {
+button:not(nav > button):not(.purgeChange, .exampleItem, .category){
 	overflow: hidden;
 	display: flex;
 	gap: 4px;
 
 	padding: 0px;
 }
-button:not(.purgeChange, .exampleItem, .category) p {
+button:not(nav > button):not(.purgeChange, .exampleItem, .category) p{
 	position: relative;
 	
 	margin: 0px;
 	padding: 5px;
 }
-button:not(.purgeChange, .exampleItem, .category) img {
+button:not(nav > button):not(.purgeChange, .exampleItem, .category) img{
 	background-color: rgba(0, 0, 0, 0.5);
 
 	width: 18px;
 	padding: 7px;
+}
+
+#mobileMenuToggle {
+	display: none;
+}
+nav {
+	display: flex;
+	gap: 16px;
+
+	justify-content: space-between;
+	margin: auto;
+	margin-bottom: 4px;
+}
+nav button {
+	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 15%);
+	flex: 1 1 50%;
+
+	transform: scale(0.9);
+	transition: filter 0.1s linear, transform 0.1s ease-out, background-color 0.1s linear;
+
+	padding: 8px 4px;
+}
+nav button:hover, .selectedTool {
+	background-color: transparent;
+	transform: scale(1);
+	filter: invert(100%);
+}
+nav button p {
+	font-size: 18px;
+	padding: 0px;
+	margin: 0px;
+}
+nav button img{
+	background-color: transparent;
+	width: 24px;
 }
 
 select {
@@ -175,21 +214,29 @@ input[type="text"]::placeholder {
 	outline: none;
 }
 
-#editorTools ::-webkit-scrollbar, #galleryContainer::-webkit-scrollbar{
+#commissionEditor, #portfolio, #roadMap, #qNa {
+	display: none;
+}
+
+body::-webkit-scrollbar, #editorTools ::-webkit-scrollbar, #galleryContainer::-webkit-scrollbar{
 	background: rgba(0, 0, 0, 0.75);
 	border-radius: 4px;
 	
 	width: 8px;
 }
-#editorTools ::-webkit-scrollbar-thumb, #galleryContainer::-webkit-scrollbar-thumb{
+body::-webkit-scrollbar-thumb, #editorTools ::-webkit-scrollbar-thumb, #galleryContainer::-webkit-scrollbar-thumb{
 	border-radius: 4px;
 	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 25%);
 }
-
-#estimator .sectionTitle, #qNa .sectionTitle {
-	grid-template-columns: 0.5fr 1fr;
+body::-webkit-scrollbar{
+	background: rgba(0, 0, 0, 0.25);
 }
-#estimator .sectionTitle h1, #qNa .sectionTitle h1 {
+
+#commissionEditor .sectionTitle, #qNa .sectionTitle {
+	grid-template-columns: auto 1fr;
+}
+#commissionEditor .sectionTitle h1, #qNa .sectionTitle h1 {
+	padding: 6px 12px;
 	border-radius: 4px 4px 0px 0px;
 }
 
@@ -217,4 +264,68 @@ input[type="text"]::placeholder {
 @font-face {
 	font-family: "Rajdhani Semi";
 	src: url("../Font/Rajdhani-SemiBold.ttf") format('truetype');
+}
+
+@media (max-width: 500px)
+{
+	body {
+		padding-top: 32px;
+	}
+	#mobileMenuToggle {
+		text-shadow: 0px 0px 4px black;
+		
+		display: block;
+		position: fixed;
+
+		top: 16px;
+		right: 16px;
+		z-index: 3;
+
+		text-decoration: none;
+	}
+
+	nav {
+		background-color: rgba(0, 0, 0, 0.9);
+		position: fixed;
+		z-index: 2;
+
+		flex-direction: column;
+		justify-content: center;
+		gap: 0px;
+		
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+
+		margin: 0px;
+		backdrop-filter: blur(10px);
+
+		display: none;
+	}
+	
+	nav::before {
+		content: "MENU SELECTOR";
+		color: white;
+
+		font-size: 2em;
+		text-align: center;
+
+		width: calc(100% - 32px);
+		margin: 0px auto;
+		margin-bottom: 16px;
+
+		border-bottom: dashed 2px white;
+	}
+	
+	nav button {
+		flex: 0;
+		transition: transform 0.1s ease-out, opacity 0.1s linear;
+	}
+
+	nav button:hover, .selectedTool {
+		opacity: 0.5;
+		transform: scale(1);
+		filter: none;
+	}
 }

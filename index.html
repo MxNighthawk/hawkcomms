@@ -6,315 +6,332 @@
 		<meta name="descriptoin" content="NighthawkDev art commissions.">
 		<title>Commissions</title>
 
-		<link href="./CSS/baseStyle.css" type="text/css" rel="stylesheet">
-		<link href="./CSS/exampleStyle.css" type="text/css" rel="stylesheet">
-		<link href="./CSS/editorStyle.css" type="text/css" rel="stylesheet">
-		<link href="./CSS/roadmapStyle.css" type="text/css" rel="stylesheet">
+		<link href="./CSS/portfolio.css" type="text/css" rel="stylesheet">
+		<link href="./CSS/editor.css" type="text/css" rel="stylesheet">
+		<link href="./CSS/roadmap.css" type="text/css" rel="stylesheet">
+		<link href="./CSS/base.css" type="text/css" rel="stylesheet">
 
 	</head>
 	<body onload="PrepSizes();AddCell();SetEditorStyles();SetRangeStyles();DisplayPacificTime();">
-		<h1>VERSION 0.19.3b - 11/28/2024, 4:31 PM PT</h1>
+		<h1>VERSION 0.19.4 - 11/29/2024, 11:09 PM PT</h1>
 		<code>
-			The gallery, now named the Portfolio, has all it's elments complete! You can now...
-			<br>- Filter base on commission / work type
-			<br>- Tap / Click on a piece to get a detailed view, including styles and piece names
-			<br>- Follow credits back to the creator(s) of the character(s)
-			
-			<br><br>
-			With this change also came something important: NSFW safety.
-			<br>- NSFW Artists can commission, but content will still be SFW only
-			<br>- Portfolio pieces of characters from NSFW artists without SFW links have redirection safeguards
-
-			<br><br>
-			Some minor tweaks have been added as well:
-			<br>- Editor animatons now have easing improvements
-			<br>- The Estimate Editor has been renamed to the Commission Editor
-			<br>- Style optimizations have been made to remove reduntant instructions
-			<br><br>
+			The site is being styled. This is the last dev update before the official final tweaks to the site style.
+			<br>- Navigation is now present for both PC and Mobile.
+			<br>- Mobile is the three dashes on the top right of your screen. On bigger screen it's just the PC navigation.
 		</code>
 		
-		<div id="gallery">
-			<div class="sectionTitle">
-				<p class="sideTitle lt">Take a look at what I can do!</p>
-				<h1>PORTFOLIO</h1>
-				<p class="sideTitle rt">Click/Tap an example to expand</p>
-			</div>
-			
-			<div id="galleryFilters">
-				<button class="category" onclick="ToggleCategory(0);">
-					<p>Stickers Sets</p>
-				</button>
-				<button class="category" onclick="ToggleCategory(1);">
-					<p>Stickers as Comics</p>
-				</button>
-			</div>
-			
-			<div id="galleryContainer">
-				<div id="focusedDisplay">
-					<div id="focusedPiece">
-						<div id="pieceMeta">
-							<h1>Ryan / Orion Stickers</h1>
-							<ul>
-							</ul>
-						</div>
+		<a id="mobileMenuToggle" href="javascript:ShowMobileNav();">
+			<img src="./Graphics/Icons/Dropdown.png">
+		</a>
 
-						<div id="piece">
-							<img src="" alt="example">
-						</div>
-
-						<button id="creditLink" onclick="LinkBackWarning();">
-							<img src="./Graphics/Icons/Direct.png">
-							<p>Character Creator (Warning!)</p>
-						</button>
-						<button id="closeGallery" onclick="ShowGallery();">
-							<img src="./Graphics/Icons/Clear.png">
-							<p>Close</p>
-						</button>
-					</div>
-				</div>
-				<div id="galleryPieces">
-				</div>
-			</div>
-		</div>
+		<nav>
+			<button onclick="SetToolVisiblitiy(0);ShowMobileNav();">
+				<img src="./Graphics/Icons/Portfolio.png">
+				<p>Portfolio</p>
+			</button>
+			<button onclick="SetToolVisiblitiy(1);ShowMobileNav();">
+				<img src="./Graphics/Icons/Editor.png">
+				<p>Commission Editor</p>
+			</button>
+			<button onclick="SetToolVisiblitiy(2);ShowMobileNav();">
+				<img src="./Graphics/Icons/Roadmap.png">
+				<p>Roadmap</p>
+			</button>
+			<button onclick="SetToolVisiblitiy(3);ShowMobileNav();">
+				<img src="./Graphics/Icons/Question.png">
+				<p>Questions</p>
+			</button>
+		</nav>
 		
-		<br>
-		<div id="qNa">
-			<div class="sectionTitle">
-				<h1>QUESTIONS & ANSWERS</h1>
-				<p class="sideTitle rt">If you have questions, I have answers.</p>
-			</div>
+		<main>
+			<div id="portfolio">
+				<div class="sectionTitle">
+					<p class="sideTitle lt">Take a look at what I can do!</p>
+					<h1>PORTFOLIO</h1>
+					<p class="sideTitle rt">Click/Tap an example to expand</p>
+				</div>
+				
+				<div id="portfolioFilters">
+					<button class="category" onclick="ToggleCategory(0);">
+						<p>Stickers Sets</p>
+					</button>
+					<button class="category" onclick="ToggleCategory(1);">
+						<p>Stickers as Comics</p>
+					</button>
+				</div>
+				
+				<div id="portfolioContainer">
+					<div id="focusedDisplay">
+						<div id="focusedPiece">
+							<div id="pieceMeta">
+								<h1>Ryan / Orion Stickers</h1>
+								<ul>
+								</ul>
+							</div>
 
-			<details>
-				<summary>Why does the Commission Editor have an Estimate Range instead of a final price?</summary>
-				<article>
-					<p>
-						The Commission Editor lets you customize your commission request. However, the price you get from the
-						customizations are NOT final. To help them be finalized, the Estimate Range shows two prices:
-						
-						<br>
-						<br>- The lower price is the total without the Complexity Fee.
-						<br>- The higher price is the total with the maximum Compelxity Fee.
+							<div id="piece">
+								<img src="" alt="example">
+							</div>
 
-						<br><br>
-						The prices in the Estimate Range will never cost more or less than what is calculated,
-						UNLESS something happens such as special requests for changes.
-					</p>
-				</article>
-			</details>
-			<details>
-				<summary>If your commissions are SFW, why are there NSFW artist characters in the Portfolio?</summary>
-				<article>
-					<p>
-						The commissions I do are SFW, however, that doesn't mean NSFW artists can't ask for a SFW commission.
-						However, I know this opens a problem for users under 18 who view the site and follow credit links back to NSFW artists who don't have
-						SFW accounts or safe-for-all-ages links. To keep users safe, I provided 2 warnings in the Portfolio for characters who belong to
-						NSFW artists who don't have SFW or safe-for-all-ages links.
-					</p>
-				</article>
-			</details>
-		</div>
-
-		<div id="contentWarning">
-			<div id="warnings">
-				<h1>- WARNING -</h1>
-				<p>
-					The character(s) present belong to a NSFW artist who doesn't have a SFW account.
-					<br>"Proceed To Link" will take you to their NSFW account instead.
-					<br><br>If you are <b style="color: orange;">under 18</b>, please <b style="color: orange;">Press the "Back To Gallery" button</b> to go back to the gallery!
-				</p>
-
-				<hr>
-				<button id="creditCancel" onclick="DisposeWarning();">
-					<img src="./Graphics/Icons/Direct.png">
-					<p>Back To Gallery</p>
-				</button>
-				<button id="creditProceed" onclick="OpenRedirection();">
-					<img src="./Graphics/Icons/Warning.png">
-					<p>Proceed to Link</p>
-				</button>
-			</div>
-		</div>
-
-		<br>
-		<div id="estimator">
-			<div class="sectionTitle">
-				<h1>COMMISSION EDITOR</h1>
-				<p class="sideTitle rt">Use the Editor to customize your commission.</p>
-			</div>
-			<div id="editorTools">
-				<div id="editor" class="MatrixMode">
-					<div class="estimatorTitle" id="estimateType">
-						<h2 id="typeName" onclick="SwapModes();">STICKER SET</h2>
-						<h2 id="estimatePrice">ESTIMATE: $00.00</h2>
-					</div>
-					<div id="stickerParameters">
-						<select aria-label="Character Count" id="charCount" oninput="SetParameters(false, false, true);">
-							<option disabled selected>Characters Present</option>
-							<option>1 Character</option>
-							<option>2 Characters, [+20%]</option>
-						</select>
-						<select aria-label="Lighting Style" id="lighting" oninput="SetParameters(true, false, false);">
-							<option disabled selected>Lighting Styles</option>
-							<option>Simple Lighting</option>
-							<option>Unlit, [-15%]</option>
-						</select>
-						<select aria-label="Outline Style" id="rimStyle" oninput="SetParameters(false, true, false);">
-							<option disabled selected>Outline Styles</option>
-							<option>Solid</option>
-							<option>Distortion</option>
-							<option>Magic</option>
-							<option>Liquid</option>
-							<option>Campfire</option>
-							<option>Custom, [+2%]</option>
-						</select>
-					</div>
-					<div id="estimatorViewport">
-						<div id="editorView">
+							<button id="creditLink" onclick="LinkBackWarning();">
+								<img src="./Graphics/Icons/Direct.png">
+								<p>Character Creator (Warning!)</p>
+							</button>
+							<button id="closeportfolio" onclick="ShowPortfolio();">
+								<img src="./Graphics/Icons/Clear.png">
+								<p>Close</p>
+							</button>
 						</div>
-						<p class="counter" id="cellCounter"></p>
 					</div>
-					<div id="stickerControls">
-						<button id="addCell" onclick="AddCell();">
+					<div id="portfolioPieces">
+					</div>
+				</div>
+			</div>
+
+			<div id="contentWarning">
+				<div id="warnings">
+					<h1>- WARNING -</h1>
+					<p>
+						The character(s) present belong to a NSFW artist who doesn't have a SFW account or account for all ages.
+						<br>"Proceed To Link" will take you to their 18+ account.
+						<br><br>If you are <b style="color: orange;">under 18</b>, please <b style="color: orange;">Press the "Back To Gallery" button</b> to go back to the gallery!
+					</p>
+
+					<hr>
+					<button id="creditCancel" onclick="DisposeWarning();">
+						<img src="./Graphics/Icons/Direct.png">
+						<p>Back To Gallery</p>
+					</button>
+					<button id="creditProceed" onclick="OpenRedirection();">
+						<img src="./Graphics/Icons/Warning.png">
+						<p>Proceed to Link</p>
+					</button>
+				</div>
+			</div>
+
+			<div id="commissionEditor">
+				<div class="sectionTitle">
+					<h1>COMMISSION EDITOR</h1>
+					<p class="sideTitle rt">Use the Editor to customize your commission.</p>
+				</div>
+				<div id="editorTools">
+					<div id="editor" class="MatrixMode">
+						<div class="estimatorTitle" id="estimateType">
+							<select id="typeName" oninput="SelectCommission();">
+								<option selected>STICKER SET</option>
+								<option>STICKERS AS COMICS</option>
+							</select>
+							<h2 id="estimatePrice">ESTIMATE: $00.00</h2>
+						</div>
+						<div id="stickerParameters">
+							<select aria-label="Character Count" id="charCount" oninput="SetParameters(false, false, true);">
+								<option disabled selected>Characters Present</option>
+								<option>1 Character</option>
+								<option>2 Characters, [+20%]</option>
+							</select>
+							<select aria-label="Lighting Style" id="lighting" oninput="SetParameters(true, false, false);">
+								<option disabled selected>Lighting Styles</option>
+								<option>Simple Lighting</option>
+								<option>Unlit, [-15%]</option>
+							</select>
+							<select aria-label="Outline Style" id="rimStyle" oninput="SetParameters(false, true, false);">
+								<option disabled selected>Outline Styles</option>
+								<option>Solid</option>
+								<option>Distortion</option>
+								<option>Magic</option>
+								<option>Liquid</option>
+								<option>Campfire</option>
+								<option>Custom, [+2%]</option>
+							</select>
+						</div>
+						<div id="estimatorViewport">
+							<div id="editorView">
+							</div>
+							<p class="counter" id="cellCounter"></p>
+						</div>
+						<div id="stickerControls">
+							<button id="addCell" onclick="AddCell();">
+								<img src="./Graphics/Icons/Add.png">
+								<p>Add Sticker</p>
+							</button>
+							<button id="selectCell" onclick="SelectAll();">
+								<img src="./Graphics/Icons/Select All.png">
+								<p>Select All</p>
+							</button>
+							<button id="deleteCell" onclick="DeleteCells();">
+								<img src="./Graphics/Icons/Delete.png">
+								<p>Delete Sticker(s)</p>
+							</button>
+							<button id="deselectCell" onclick="DeselectAll();">
+								<img src="./Graphics/Icons/Deselect All.png">
+								<p>Deselect All</p>
+							</button>
+						</div>
+					</div>
+
+					<div id="estimateTotal">
+						<div class="estimatorTitle">
+							<h2>ESTIMATE RANGE: $00.00 - $00.00</h2>
+						</div>
+						<div id="totalContainer">
+							<p class="counter" id="listCounter">0 / 4</p>
+							<div id="commissionList">
+								
+							</div>
+						</div>
+						<button id="addToTotal" onclick="AddToReceipt();">
 							<img src="./Graphics/Icons/Add.png">
-							<p>Add Sticker</p>
+							<p>Add Customizations</p>
 						</button>
-						<button id="selectCell" onclick="SelectAll();">
-							<img src="./Graphics/Icons/Select All.png">
-							<p>Select All</p>
-						</button>
-						<button id="deleteCell" onclick="DeleteCells();">
-							<img src="./Graphics/Icons/Delete.png">
-							<p>Delete Sticker(s)</p>
-						</button>
-						<button id="deselectCell" onclick="DeselectAll();">
-							<img src="./Graphics/Icons/Deselect All.png">
-							<p>Deselect All</p>
+						<button id="clearEstimate" onclick="ClearReceipt();">
+							<img src="./Graphics/Icons/Clear.png">
+							<p>Clear Customizations</p>
 						</button>
 					</div>
-				</div>
-
-				<div id="estimateTotal">
-					<div class="estimatorTitle">
-						<h2>ESTIMATE RANGE: $00.00 - $00.00</h2>
-					</div>
-					<div id="totalContainer">
-						<p class="counter" id="listCounter">0 / 4</p>
-						<div id="commissionList">
-							
-						</div>
-					</div>
-					<button id="addToTotal" onclick="AddToReceipt();">
-						<img src="./Graphics/Icons/Add.png">
-						<p>Add Customizations</p>
-					</button>
-					<button id="clearEstimate" onclick="ClearReceipt();">
-						<img src="./Graphics/Icons/Clear.png">
-						<p>Clear Customizations</p>
-					</button>
 				</div>
 			</div>
-		</div>
 
-		<br>
-		<div class="sectionTitle">
-			<p class="sideTitle lt">Drag and expand strips, or use fitlers to search.</p>
-			<h1>ROADMAP</h1>
-			<p class="sideTitle rt" id="localTime" onclick="SwapTimeFormat();"></p>
-		</div>
-		<div id="roadMap" class="dragArea">
-			<div id="mapDrag" class="dragContent">
-				<div class="columnBackground">
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
-					<div class="roadColumn"><p class="dateStamp"></p></div>
+			<div id="roadMap">
+				<div class="sectionTitle">
+					<p class="sideTitle lt">Drag and expand strips, or use fitlers to search.</p>
+					<h1>ROADMAP</h1>
+					<p class="sideTitle rt" id="localTime" onclick="SwapTimeFormat();"></p>
 				</div>
-				<div class="orderStrips">
-					<div class="orderRow">
-						<div class="order">
-							<div class="userETA">
-								<div class="fill"></div>
-								<p class="username"></p>
-								<p class="eta"></p>
+				<div id="mapArea" class="dragArea">
+					<div id="mapDrag" class="dragContent">
+						<div class="columnBackground">
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+							<div class="roadColumn"><p class="dateStamp"></p></div>
+						</div>
+						<div class="orderStrips">
+							<div class="orderRow">
+								<div class="order">
+									<div class="userETA">
+										<div class="fill"></div>
+										<p class="username"></p>
+										<p class="eta"></p>
+									</div>
+									<div class="orderTiles">
+									</div>
+									<div class="pricePaid">$0</div>
+								</div>
+								<div class="order">
+									<div class="userETA">
+										<div class="fill"></div>
+										<p class="username"></p>
+										<p class="eta"></p>
+									</div>
+									<div class="orderTiles">
+									</div>
+									<div class="pricePaid">$0</div>
+								</div>
 							</div>
-							<div class="orderTiles">
+							<div class="order">
+								<div class="userETA">
+									<div class="fill"></div>
+									<p class="username"></p>
+									<p class="eta"></p>
+								</div>
+								<div class="orderTiles">
+									
+								</div>
+								<div class="pricePaid">$0</div>
 							</div>
-							<div class="pricePaid">$0</div>
-						</div>
-						<div class="order">
-							<div class="userETA">
-								<div class="fill"></div>
-								<p class="username"></p>
-								<p class="eta"></p>
-							</div>
-							<div class="orderTiles">
-							</div>
-							<div class="pricePaid">$0</div>
-						</div>
-					</div>
-					<div class="order">
-						<div class="userETA">
-							<div class="fill"></div>
-							<p class="username"></p>
-							<p class="eta"></p>
-						</div>
-						<div class="orderTiles">
-							
-						</div>
-						<div class="pricePaid">$0</div>
-					</div>
-					<div class="order">
-						<div class="userETA">
-							<div class="fill"></div>
-							<p class="username"></p>
-							<p class="eta"></p>
-						</div>
-						<div class="orderTiles">
+							<div class="order">
+								<div class="userETA">
+									<div class="fill"></div>
+									<p class="username"></p>
+									<p class="eta"></p>
+								</div>
+								<div class="orderTiles">
 
+								</div>
+								<div class="pricePaid">$0</div>
+							</div>
+							<div class="order">
+								<div class="userETA">
+									<div class="fill"></div>
+									<p class="username"></p>
+									<p class="eta"></p>
+								</div>
+								<div class="orderTiles">
+									
+								</div>
+								<div class="pricePaid">$0</div>
+							</div>
 						</div>
-						<div class="pricePaid">$0</div>
+						<div style="height: 64px; width: 100%;"></div>
 					</div>
-					<div class="order">
-						<div class="userETA">
-							<div class="fill"></div>
-							<p class="username"></p>
-							<p class="eta"></p>
+					<div id="mapFilters">
+						<input id="nameSearch" type="text" autocomplete="off" oninput="FilterByName();" placeholder="Enter Username or Ticket #">
+						<div id="colorFilters">
+							<button onclick="FilterByColor(0)" class="state" style="--colorRotation: 104;"><p>Working On / Focused</p></button>
+							<button onclick="FilterByColor(1)" class="state" style="--colorRotation: 15;"><p>Delayed</p></button>
+							<button onclick="FilterByColor(2)" class="state" style="--colorRotation: 220;"><p>In Queue / Received</p></button>
 						</div>
-						<div class="orderTiles">
-							
-						</div>
-						<div class="pricePaid">$0</div>
 					</div>
 				</div>
-				<div style="height: 64px; width: 100%;"></div>
 			</div>
-			<div id="mapFilters">
-				<input id="nameSearch" type="text" autocomplete="off" oninput="FilterByName();" placeholder="Enter Username or Ticket #">
-				<div id="colorFilters">
-					<button onclick="FilterByColor(0)" class="state" style="--colorRotation: 104;"><p>Working On / Focused</p></button>
-					<button onclick="FilterByColor(1)" class="state" style="--colorRotation: 15;"><p>Delayed</p></button>
-					<button onclick="FilterByColor(2)" class="state" style="--colorRotation: 220;"><p>In Queue / Received</p></button>
+
+			<div id="qNa">
+				<div class="sectionTitle">
+					<h1>QUESTIONS & ANSWERS</h1>
+					<p class="sideTitle rt">If you have questions, I have answers.</p>
+				</div>
+				
+				<div>
+					<details>
+						<summary>Why does the Commission Editor have an Estimate Range instead of a final price?</summary>
+						<article>
+							<p>
+								The Commission Editor lets you customize your commission request. However, the price you get from the
+								customizations are NOT final. To help them be finalized, the Estimate Range shows two prices:
+								
+								<br>
+								<br>- The lower price is the total without the Complexity Fee.
+								<br>- The higher price is the total with the maximum Compelxity Fee.
+
+								<br><br>
+								The prices in the Estimate Range will never cost more or less than what is calculated,
+								UNLESS something happens such as special requests for changes.
+							</p>
+						</article>
+					</details>
+					<details>
+						<summary>If your commissions are SFW, why are there NSFW artist characters in the Portfolio?</summary>
+						<article>
+							<p>
+								The commissions I do are SFW. However, that doesn't mean NSFW artists can't ask for a SFW commission.
+								However, I know this opens a problem for users under 18 who view the site and follow credit links back to NSFW artists who don't have
+								SFW accounts or safe-for-all-ages links. To keep users safe, I provided 2 warnings in the Portfolio for characters who belong to
+								NSFW artists who don't have SFW or safe-for-all-ages links.
+							</p>
+						</article>
+					</details>
 				</div>
 			</div>
-		</div>
+		</main>
 	</body>
 
 	<script src="./JS/drag.js?version = 2.0.0"></script>
-	<script src="./JS/gallery.js?version = 1.0.0"></script>
-	<script src="./JS/editor.js?version = 1.0.0"></script>
-	<script src="./JS/mapStrips.js?version = 1.2.1"></script>
-	<script src="./JS/roadmap.js?version = 1.6.0"></script>
+	<script src="./JS/portfolio.js?version = 2.0.0"></script>
+	<script src="./JS/editor.js?version = 2.0.0"></script>
+	<script src="./JS/mapStrips.js?version = 2.0.0"></script>
+	<script src="./JS/roadmap.js?version = 2.0.0"></script>
+	<script src="./JS/navigation.js?version = 1.0.0"></script>
 </html>

@@ -2,23 +2,23 @@
 	--outlineColor: blue;
 }
 
-#gallery, #contentWarning {
+#portfolio, #contentWarning {
 	color: white;
 }
 
-#galleryContainer {
+#portfolioContainer {
 	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 6%);
 	border: solid 4px transparent;
 	border-radius: 0px 0px 4px 4px;
 
-	height: 80vh;
+	height: 85vh;
 	display: block;
 
 	position: relative;
 	overflow-y: auto;
 	overflow-x: hidden;
 }
-#galleryPieces {
+#portfolioPieces {
 	display: flex;
 	flex-wrap: wrap;
 	
@@ -56,6 +56,24 @@
 
 	opacity: 0;
 	gap: 4px;
+
+	height: max-content;
+}
+#piece {
+	margin: 16px 0px;
+
+	width: 100%;
+	max-width: 768px;
+
+	filter: drop-shadow(0px 0px 4px var(--outlineColor));
+}
+#piece img {
+	box-sizing: border-box;
+	display: block;
+	margin: auto;
+
+	width: 100%;
+	max-height: 55vh;
 }
 
 #contentWarning {
@@ -109,10 +127,10 @@
 	padding: 0px;
 }
 
-#closeGallery, #creditProceed, #creditLink {
+#closeportfolio, #creditProceed, #creditLink {
 	height: 40px;
 }
-#closeGallery {
+#closeportfolio {
 	background-color: #f00;
 }
 #creditProceed {
@@ -121,11 +139,11 @@
 #creditLink {
 	background-color: #00f;
 }
-#closeGallery img, #creditProceed img, #creditLink img {
+#closeportfolio img, #creditProceed img, #creditLink img {
 	width: 22px;
 	padding: 9px;
 }
-#closeGallery p, #creditProceed p, #creditLink p {
+#closeportfolio p, #creditProceed p, #creditLink p {
 	font-size: 18px;
 	padding: 8px 5px;
 }
@@ -143,7 +161,7 @@
 	padding: 10px 5px;
 }
 
-#galleryFilters {
+#portfolioFilters {
 	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 14%);
 	padding: 4px;
 	
@@ -185,25 +203,9 @@
 	-webkit-user-drag: none;
 }
 
-#piece {
-	margin: 16px 0px;
-
-	width: 100%;
-	max-width: 768px;
-
-	filter: drop-shadow(0px 0px 4px var(--outlineColor));
-}
-#piece img {
-	box-sizing: border-box;
-	display: block;
-	margin: auto;
-	
-
-	width: 100%;
-}
 
 @media (max-width: 425px) {
-	#galleryFilters {
+	#portfolioFilters {
 		flex-direction: column;
 	}
 }
@@ -215,4 +217,8 @@
 	#pieceMeta ul {
 		font-size: 0.9em;
 	}
+}
+
+@media (max-height) {
+	
 }

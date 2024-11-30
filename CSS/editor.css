@@ -4,11 +4,13 @@
 	--selectStates: initial;
 }
 
-#estimator {
+#commissionEditor {
 	color: white;
 
 	width: 100%;
 	max-width: max-content;
+
+	margin: auto;
 }
 
 #editorTools {
@@ -111,7 +113,7 @@
 	
 	padding: 4px;
 }
-.estimatorTitle h2 {
+.estimatorTitle h2, #typeName {
 	font-family: "Rajdhani Bold";
 	text-align: center;
 	text-shadow: 0px 0px 4px black;
@@ -134,9 +136,12 @@
 	gap: 4px;
 }
 #typeName {
+	font-size: 1.25em;
 	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 90%), 24%);
-
-	padding: 8px 12px;
+}
+#typeName option {
+	font-size: 16px;
+	text-align: left;
 }
 
 #stickerParameters {

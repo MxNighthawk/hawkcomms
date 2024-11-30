@@ -9,7 +9,7 @@ let colorTags = document.getElementsByClassName("state");
 let nameSearch = document.getElementById("nameSearch");
 let pacificTime = document.getElementById("localTime");
 
-let map = document.getElementById("roadMap");
+let map = document.getElementById("mapArea");
 let mapDrag = document.getElementById("mapDrag");
 
 new Draggable(map, mapDrag);

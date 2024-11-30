@@ -1,6 +1,11 @@
-let galleryContainer = document.getElementById("galleryContainer");
-let galleryMask = document.getElementById("galleryPieces");
-let galleryOverlay = document.getElementById("focusedDisplay");
+//
+//	COPYRIGHT NIGHTHAWK 2024. ALL RIGHTS RESERVED.
+//	PROGRAMMED BY: JESUS BARAJAS (AKA MXNIGHTHAWK / NIGHTHAWK / NIGHTHAWKDEV)
+//
+
+let portfolioContainer = document.getElementById("portfolioContainer");
+let portfolioMask = document.getElementById("portfolioPieces");
+let portfolioOverlay = document.getElementById("focusedDisplay");
 
 let overlayPiece = document.getElementById("focusedPiece");
 
@@ -10,10 +15,10 @@ let expansionMeta = document.getElementById("pieceMeta");
 let overlayCredit = document.getElementById("creditLink").getElementsByTagName("p")[0];
 let creditIcon = document.getElementById("creditLink").getElementsByTagName("img")[0];
 
-let galleryWarning = document.getElementById("contentWarning");
+let portfolioWarning = document.getElementById("contentWarning");
 let goToLink = document.getElementById("creditProceed");
 
-let galleryIsOpen = false;
+let portfolioIsOpen = false;
 
 let stickerFilter = document.getElementsByClassName("category")[0];
 let sacFilter = document.getElementsByClassName("category")[1];
@@ -65,12 +70,12 @@ let overlayFadeOut = [
 	}
 ]
 
-let galleryTiming = {
+let portfolioTiming = {
 	duration: 150,
 	easing: "ease",
 	fill: "forwards"
 };
-let galleryDisplayTiming = {
+let portfolioDisplayTiming = {
 	delay: 150,
 	duration: 150,
 	easing: "ease",
@@ -128,7 +133,7 @@ class Piece
 
 		this.item.classList.add("exampleItem");
 		this.item.addEventListener("click", (e) => {
-			ShowGallery(this);
+			ShowPortfolio(this);
 		});
 
 		this.image = document.createElement("img");
@@ -136,7 +141,7 @@ class Piece
 		this.image.alt = "example";
 		
 		this.item.append(this.image);
-		galleryMask.append(this.item);
+		portfolioMask.append(this.item);
 		
 		for (let i = 0; i < info.length; i++) {
 			const element = info[i];
@@ -169,12 +174,12 @@ let sacs = [
 	// new Piece("Hottest Voice Guy (C)", ["Single Piece", "Lit", "1 Character"], "/IMG_1152.png"),
 ];
 
-galleryContainer.addEventListener("keydown", (e) =>
+portfolioContainer.addEventListener("keydown", (e) =>
 {
-	if(e.key == "ESC" && galleryIsOpen)
-		ShowGallery();
+	if(e.key == "ESC" && portfolioIsOpen)
+		ShowPortfolio();
 });
-function ShowGallery(piece)
+function ShowPortfolio(piece)
 {
 	if(piece != null)
 	{
@@ -189,26 +194,26 @@ function ShowGallery(piece)
 		redirectionLink = piece.credit;
 	}
 	
-	if(!galleryIsOpen)
+	if(!portfolioIsOpen)
 	{
-		galleryOverlay.animate(overlayFadeIn, galleryTiming);
-		overlayPiece.animate(pieceInFrames, galleryDisplayTiming);
+		portfolioOverlay.animate(overlayFadeIn, portfolioTiming);
+		overlayPiece.animate(pieceInFrames, portfolioDisplayTiming);
 	}
 	else
 	{
-		galleryOverlay.animate(overlayFadeOut, galleryDisplayTiming);
-		overlayPiece.animate(pieceOutFrames, galleryTiming);
+		portfolioOverlay.animate(overlayFadeOut, portfolioDisplayTiming);
+		overlayPiece.animate(pieceOutFrames, portfolioTiming);
 	}
 
-	galleryIsOpen = !galleryIsOpen;
+	portfolioIsOpen = !portfolioIsOpen;
 }
 
 function LinkBackWarning()
 {
 	if(needsAWarning)
 	{
-		galleryWarning.style.setProperty("opacity", 1);
-		galleryWarning.style.setProperty("z-index", 2);
+		portfolioWarning.style.setProperty("opacity", 1);
+		portfolioWarning.style.setProperty("z-index", 2);
 		document.body.style.setProperty("overflow-y", "hidden");
 	}
 	else
@@ -216,8 +221,8 @@ function LinkBackWarning()
 }
 function DisposeWarning()
 {	
-	galleryWarning.style.setProperty("opacity", 0);
-	galleryWarning.style.setProperty("z-index", -1);
+	portfolioWarning.style.setProperty("opacity", 0);
+	portfolioWarning.style.setProperty("z-index", -1);
 	document.body.style.setProperty("overflow-y", "auto");
 }
 function OpenRedirection()
@@ -251,9 +256,9 @@ function ToggleCategory(id)
 		element.Toggle(condition);
 	}
 
-	SetGalleryFilterStyle();
+	SetPortfolioFilterStyle();
 }
-function SetGalleryFilterStyle()
+function SetPortfolioFilterStyle()
 {
 	stickerFilter.style.setProperty("opacity", setsActive ? 1 : 0.25);
 	stickerFilter.style.setProperty("background-color", `hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), ${setsActive ? 30 : 20}%)`);

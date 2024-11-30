@@ -332,7 +332,7 @@ class Change
 		});
 
 		let partSummary = document.createElement('summary');
-		partSummary.innerText += `${typeName.innerText} - $${estimate.toFixed(2)}`;
+		partSummary.innerText += `${typeName.value} - $${estimate.toFixed(2)}`;
 		partSummary.append(buttonPurge);
 
 		totalParts.push(this);
@@ -563,7 +563,7 @@ function UpdateCells()
 	matrix.style.setProperty("--cellMaxWidth", maxWidth);
 }
 
-function SwapModes()
+function SelectCommission()
 {
 	selectedCells = [];
 	for (let i = 0; i < cells.length; i++) {
@@ -571,17 +571,7 @@ function SwapModes()
 		element.cell.remove();
 	}
 
-	switch (typeID) {
-		case 0:
-			typeID = 1;
-			typeName.innerText = "STICKERS AS COMICS";
-		break;
-
-		case 1:
-			typeID = 0;
-			typeName.innerText = "STICKER SET";
-		break;
-	}
+	typeID = typeName.selectedIndex;
 
 	cells = [];
 	editor.classList = [];

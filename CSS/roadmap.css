@@ -6,7 +6,7 @@
 	color: #bbb;
 }
 
-#roadMap {
+#mapArea {
 	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 10%);
 	color: white;
 
