@@ -74,6 +74,7 @@
 	margin: auto;
 
 	max-height: 55vh;
+	max-width: 100%;
 }
 
 #contentWarning {
@@ -196,6 +197,7 @@
 	margin: auto;
 
 	height: 100%;
+	max-width: 100%;
 	
 	user-select: none;
 	-webkit-user-select: none;
