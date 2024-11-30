@@ -59,13 +59,10 @@
 }
 #totalContainer {
 	position: relative;
-
 	height: calc(var(--matrixSize) + 35px);
-	max-height: 60vh;
 
 	display: flex;
 }
-
 #commissionList {
 	background: linear-gradient(to bottom, hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 10%)
 										, hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 5%));
