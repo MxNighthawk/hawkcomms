@@ -12,8 +12,8 @@
 		<link href="./CSS/base.css" type="text/css" rel="stylesheet">
 
 	</head>
-	<body onload="PrepSizes();AddCell();SetEditorStyles();SetRangeStyles();DisplayPacificTime();">
-		<h1>VERSION 0.19.4 - 11/29/2024, 11:09 PM PT</h1>
+	<body onload="PrepSizes();AddCell();SetEditorStyles();SetRangeStyles();DisplayPacificTime();HideAllParts();">
+		<h1>VERSION 0.19.41 - 11/29/2024, 11:45 PM PT</h1>
 		<code>
 			The site is being styled. This is the last dev update before the official final tweaks to the site style.
 			<br>- Navigation is now present for both PC and Mobile.
@@ -73,7 +73,7 @@
 								<img src="" alt="example">
 							</div>
 
-							<button id="creditLink" onclick="LinkBackWarning();">
+							<button id="creditLink" onclick="LinkBackWarning();HideMiniMenu();">
 								<img src="./Graphics/Icons/Direct.png">
 								<p>Character Creator (Warning!)</p>
 							</button>
@@ -98,7 +98,7 @@
 					</p>
 
 					<hr>
-					<button id="creditCancel" onclick="DisposeWarning();">
+					<button id="creditCancel" onclick="DisposeWarning();HideMiniMenu();">
 						<img src="./Graphics/Icons/Direct.png">
 						<p>Back To Gallery</p>
 					</button>

@@ -214,10 +214,6 @@ input[type="text"]::placeholder {
 	outline: none;
 }
 
-#commissionEditor, #portfolio, #roadMap, #qNa {
-	display: none;
-}
-
 body::-webkit-scrollbar, #editorTools ::-webkit-scrollbar, #galleryContainer::-webkit-scrollbar{
 	background: rgba(0, 0, 0, 0.75);
 	border-radius: 4px;
