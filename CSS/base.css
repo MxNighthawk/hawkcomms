@@ -1,3 +1,16 @@
+@font-face {
+	font-family: "Rajdhani Bold";
+	src: url("../Font/Rajdhani-Bold.ttf") format('truetype');
+}
+@font-face {
+	font-family: "Rajdhani";
+	src: url("../Font/Rajdhani-Medium.ttf") format('truetype');
+}
+@font-face {
+	font-family: "Rajdhani Semi";
+	src: url("../Font/Rajdhani-SemiBold.ttf") format('truetype');
+}
+
 :root {
 	--interfaceHue: 220;
 	--interfaceSaturation: 0.1;
@@ -247,19 +260,6 @@ body::-webkit-scrollbar{
 #qNa details:last-of-type {
 	border-radius: 0px 0px 4px 4px;
 	padding-bottom: 4px;
-}
-
-@font-face {
-	font-family: "Rajdhani Bold";
-	src: url("../Font/Rajdhani-Bold.ttf") format('truetype');
-}
-@font-face {
-	font-family: "Rajdhani";
-	src: url("../Font/Rajdhani-Medium.ttf") format('truetype');
-}
-@font-face {
-	font-family: "Rajdhani Semi";
-	src: url("../Font/Rajdhani-SemiBold.ttf") format('truetype');
 }
 
 @media (max-width: 500px)
