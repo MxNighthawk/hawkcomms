@@ -192,7 +192,7 @@
 	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 24%);
 }
 .exampleItem img {
-	display: block;
+	display: inline-block;
 	margin: auto;
 
 	max-height: 100%;
@@ -200,6 +200,7 @@
 	max-width: fit-content;
 	
 	user-select: none;
+	-webkit-user-select: none;
 	-webkit-user-drag: none;
 }
 
