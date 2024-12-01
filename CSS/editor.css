@@ -233,14 +233,9 @@
 
 .templatePart {
 	position: absolute;
-	
-	display: block;
-	margin: auto;
 
 	height: 100%;
 	max-width: 100%;
-	
-	top: 0px;
 }
 .templatePart:first-child {
 	position: relative;
