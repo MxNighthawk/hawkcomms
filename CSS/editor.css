@@ -119,8 +119,9 @@
 }
 
 #editor * {
-	-webkit-user-drag: none;
 	user-select: none;
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
 }
 
 .estimatorTitle {
@@ -240,9 +241,6 @@
 	max-width: 100%;
 	
 	top: 0px;
-	user-select: none;
-	-webkit-user-select: none;
-	-webkit-user-drag: none;
 }
 .templatePart:first-child {
 	position: relative;
