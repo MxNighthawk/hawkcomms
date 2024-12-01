@@ -6,6 +6,11 @@
 #portfolio, #contentWarning {
 	color: white;
 }
+#portfolio * {
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+}
 
 #portfolioContainer {
 	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 6%);
@@ -216,15 +221,8 @@
 	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 24%);
 }
 .exampleItem img {
-	display: block;
-	margin: auto;
-
-	height: 100%;
+	max-height: 100%;
 	max-width: 100%;
-	
-	user-select: none;
-	-webkit-user-select: none;
-	-webkit-user-drag: none;
 }
 
 

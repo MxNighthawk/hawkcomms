@@ -196,7 +196,6 @@
 	flex: 1 1 30%;
 
 	justify-content: center;
-	align-content: center;
 	
 	max-width: var(--cellMaxWidth);
 	aspect-ratio: var(--ratio) / 1;
@@ -231,19 +230,11 @@
 	opacity: 1;
 }
 
-.templatePart {
+.templatePart {	
 	position: absolute;
-	
-	display: block;
-	margin: auto;
 
 	max-height: 100%;
 	max-width: 100%;
-	
-	top: 0px;
-}
-.templatePart:first-child {
-	position: relative;
 }
 
 .descriptionBox {
