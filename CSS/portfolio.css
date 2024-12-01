@@ -1,5 +1,6 @@
 :root {
-	--outlineColor: blue;
+	--dropShadowColor: blue;
+	--outlineTint: yellow;
 }
 
 #portfolio, #contentWarning {
@@ -66,7 +67,7 @@
 	width: 100%;
 	max-width: 768px;
 
-	filter: drop-shadow(0px 0px 4px var(--outlineColor));
+	filter: drop-shadow(0px 0px 4px var(--dropShadowColor));
 }
 #piece img {
 	box-sizing: border-box;
@@ -119,6 +120,8 @@
 	font-size: 2.25em;
 	text-align: center;
 	margin: 0px;
+
+	padding-left: 20px;
 }
 #pieceMeta ul {
 	display: flex;
@@ -126,6 +129,26 @@
 
 	margin: 0px;
 	padding: 0px;
+}
+#pieceMeta li:last-of-type {
+	position: relative;
+}
+#pieceMeta li:last-of-type::after {
+	content: "";
+	background: var(--outlineTint);
+	
+	border: outset 3px #570200;
+	border-bottom-color: blue;
+	border-right-color: blue;
+	border-radius: 2px;
+
+	width: 8px;
+	height: 8px;
+
+	position: absolute;
+	right: -20px;
+	top: 50%;
+	transform: translateY(calc(-50% - 1px));
 }
 
 #closeportfolio, #creditProceed, #creditLink {
@@ -163,7 +186,7 @@
 }
 
 #portfolioFilters {
-	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 14%);
+	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 10%);
 	padding: 4px;
 	
 	display: flex;
@@ -218,8 +241,4 @@
 	#pieceMeta ul {
 		font-size: 0.9em;
 	}
-}
-
-@media (max-height) {
-	
 }

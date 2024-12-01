@@ -116,14 +116,16 @@ class Piece
 	item;
 	image;
 	shadowColor;
+	outlineColor;
 	warning;
 
 	credit;
 
-	constructor(name, info, file, color, credit, warn)
+	constructor(name, info, file, color, tint, credit, warn)
 	{
 		this.title = name;
 		this.shadowColor = color;
+		this.outlineColor = tint;
 		this.credit = credit;
 		this.warning = warn;
 		
@@ -146,10 +148,7 @@ class Piece
 		for (let i = 0; i < info.length; i++) {
 			const element = info[i];
 			
-			if(i == 0)
-				this.information += `<li style="list-style: none;">${element}</li>`;
-			else
-				this.information += `<li>${element}</li>`;
+			this.information += `<li ${i == 0 ? 'style="list-style: none;"' : ""}>${element}</li>`;
 		}
 	}
 
@@ -162,12 +161,12 @@ class Piece
 
 let sets = [
 	new Piece("Bman Stickers", 
-				["1 Character", "Lit", "Distortion (Red Base)"], 
-				"/Bman_Stickers.png", "red",
+				["1 Character", "Lit", "Distortion"], 
+				"/Bman_Stickers.png", "red", "#ff0052",
 				"https://x.com/BmanTwt", false),
 	new Piece("Trick x Orion Friendship", 
-				["2 Character", "Unlit", "Distortion (Yellow Base)"], 
-				"/Friendship.png", "blue",
+				["2 Characters", "Unlit", "Distortion"], 
+				"/Friendship.png", "blue", "#ffea51",
 				"https://linktr.ee/trickqrex", true),
 ];
 let sacs = [
@@ -184,9 +183,11 @@ function ShowPortfolio(piece)
 	if(piece != null)
 	{
 		expansionVisual.getElementsByTagName("img")[0].src = piece.image.src;
-		expansionVisual.style.setProperty("--outlineColor", piece.shadowColor);
+		expansionVisual.style.setProperty("--dropShadowColor", piece.shadowColor);
+
 		expansionMeta.getElementsByTagName("h1")[0].innerText = piece.title;
 		expansionMeta.getElementsByTagName("ul")[0].innerHTML = piece.information;
+		expansionMeta.style.setProperty("--outlineTint", piece.outlineColor);
 
 		overlayCredit.innerText = piece.warning ? "Character Credits (Content Warning)" : "Character Credits";
 		creditIcon.src = `./Graphics/Icons/${piece.warning ? "Warning" : "Direct"}.png`;

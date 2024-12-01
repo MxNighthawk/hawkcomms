@@ -6,18 +6,14 @@
 		<meta name="descriptoin" content="NighthawkDev art commissions.">
 		<title>Commissions</title>
 		
-		<link href="./CSS/base.css?version=1.0.1" type="text/css" rel="stylesheet">
-		<link href="./CSS/portfolio.css?version=1.0.1" type="text/css" rel="stylesheet">
-		<link href="./CSS/editor.css?version=1.0.2" type="text/css" rel="stylesheet">
+		<link href="./CSS/base.css?version=1.1.0" type="text/css" rel="stylesheet">
+		<link href="./CSS/portfolio.css?version=1.1.0" type="text/css" rel="stylesheet">
+		<link href="./CSS/editor.css?version=1.1.0" type="text/css" rel="stylesheet">
 		<link href="./CSS/roadmap.css?version=1.0.0" type="text/css" rel="stylesheet">
 
 	</head>
 	<body onload="PrepSizes();AddCell();SetEditorStyles();SetRangeStyles();DisplayPacificTime();HideAllParts();">
-		<h1>VERSION 0.19.51f - 11/30/2024, 12:35 AM PT</h1>
-		<code>
-			The site is being styled. This is the last dev update before the official final tweaks to the site style.
-			<br>- CSS caching is fixed and the styling for elements such as the Estimate Range window and the Portfolio
-		</code>
+		<h1 style="text-align: center;">VERSION 0.19.6.0001 - 12/1/2024, 12:36 AM PT</h1>
 		
 		<a id="mobileMenuToggle" href="javascript:ShowMobileNav();">
 			<img src="./Graphics/Icons/Dropdown.png">
@@ -117,8 +113,10 @@
 					<div id="editor" class="MatrixMode">
 						<div class="estimatorTitle" id="estimateType">
 							<select id="typeName" oninput="SelectCommission();">
-								<option selected>STICKER SET</option>
-								<option>STICKERS AS COMICS</option>
+								<optgroup label="STICKERS">
+									<option selected>STICKER SET</option>
+									<option>STICKERS AS COMICS</option>
+								</optgroup>
 							</select>
 							<h2 id="estimatePrice">ESTIMATE: $00.00</h2>
 						</div>
@@ -143,11 +141,10 @@
 								<option>Custom, [+2%]</option>
 							</select>
 						</div>
-						<div id="estimatorViewport">
-							<div id="editorView">
-							</div>
-							<p class="counter" id="cellCounter"></p>
+
+						<div id="editorView">
 						</div>
+						<p class="counter" id="cellCounter"></p>
 						<div id="stickerControls">
 							<button id="addCell" onclick="AddCell();">
 								<img src="./Graphics/Icons/Add.png">
@@ -172,12 +169,12 @@
 						<div class="estimatorTitle">
 							<h2>ESTIMATE RANGE: $00.00 - $00.00</h2>
 						</div>
-						<div id="totalContainer">
-							<p class="counter" id="listCounter">0 / 4</p>
-							<div id="commissionList">
+
+						<div id="commissionList">
 								
-							</div>
 						</div>
+						<p class="counter" id="listCounter">0 / 4</p>
+
 						<button id="addToTotal" onclick="AddToReceipt();">
 							<img src="./Graphics/Icons/Add.png">
 							<p>Add Customizations</p>
@@ -298,16 +295,16 @@
 						<summary>Why does the Commission Editor have an Estimate Range instead of a final price?</summary>
 						<article>
 							<p>
-								The Commission Editor lets you customize your commission request. However, the price you get from the
-								customizations are NOT final. To help them be finalized, the Estimate Range shows two prices:
+								The Commission Editor lets you customize your commission request. However, the price you get from a
+								single change is NOT accurate enough to give a strong estimate. To fix this, I made the Estimate Range, which
+								shows two prices:
 								
 								<br>
 								<br>- The lower price is the total without the Complexity Fee.
 								<br>- The higher price is the total with the maximum Compelxity Fee.
 
 								<br><br>
-								The prices in the Estimate Range will never cost more or less than what is calculated,
-								UNLESS something happens such as special requests for changes.
+								The prices you get from the Estimate Range will never exceed more than the maximum.
 							</p>
 						</article>
 					</details>
@@ -328,9 +325,9 @@
 	</body>
 
 	<script src="./JS/drag.js?version = 2.0.0"></script>
-	<script src="./JS/portfolio.js?version = 2.0.0"></script>
-	<script src="./JS/editor.js?version = 2.0.0"></script>
-	<script src="./JS/mapStrips.js?version = 2.0.1"></script>
+	<script src="./JS/portfolio.js?version = 2.1.0"></script>
+	<script src="./JS/editor.js?version = 2.1.0"></script>
+	<script src="./JS/mapStrips.js?version = 2.0.0"></script>
 	<script src="./JS/roadmap.js?version = 2.0.0"></script>
 	<script src="./JS/navigation.js?version = 1.0.0"></script>
 </html>

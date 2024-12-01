@@ -22,8 +22,10 @@ body {
 	scroll-behavior: smooth;
 }
 main {
-	min-height: 80vh;
+	border-radius: 0px 0px 4px 4px;
+
 	overflow-x: hidden;
+	min-height: 80vh;
 }
 
 h1, h2 {
@@ -35,7 +37,6 @@ h1 {
 h2 {
 	font-size: 1.25em;
 }
-
 p {
 	margin: 4px 0px;
 }
@@ -53,6 +54,16 @@ button, select {
 
 	padding: 4px;
 	cursor: pointer;
+}
+select {
+	background: grey;
+	font-family: "Rajdhani Semi";
+
+	text-transform: none;
+	text-shadow: none;
+}
+optgroup {
+	text-align: left;
 }
 
 button:not(nav > button):not(.purgeChange, .exampleItem, .category){
@@ -80,26 +91,45 @@ button:not(nav > button):not(.purgeChange, .exampleItem, .category) img{
 }
 nav {
 	display: flex;
-	gap: 16px;
-
+	gap: 8px;
+	
 	justify-content: space-between;
 	margin: auto;
-	margin-bottom: 4px;
+
+	padding-bottom: 8px;
 }
 nav button {
 	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 15%);
 	flex: 1 1 50%;
 
-	transform: scale(0.9);
 	transition: filter 0.1s linear, transform 0.1s ease-out, background-color 0.1s linear;
 
 	padding: 8px 4px;
 }
 nav button:hover, .selectedTool {
-	background-color: transparent;
-	transform: scale(1);
+	background-color: black;
 	filter: invert(100%);
 }
+nav button:not(.selectedTool):hover {
+	transform: scale(0.9);
+}
+.selectedTool {
+	transform: scale(1);
+	/* border-radius:  4px 4px 0px 0px; */
+}
+/* .selectedTool:after {
+	content: "";
+	display: block;
+
+	background: black;
+	height: 8px;
+	
+	left: 0px;
+	right: 0px;
+	bottom: -8px;
+
+	position: absolute;
+} */
 nav button p {
 	font-size: 18px;
 	padding: 0px;
@@ -110,13 +140,6 @@ nav button img{
 	width: 24px;
 }
 
-select {
-	background: grey;
-	font-family: "Rajdhani Semi";
-
-	text-transform: none;
-	text-shadow: none;
-}
 
 details {
 	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 20%);
@@ -287,7 +310,7 @@ body::-webkit-scrollbar{
 
 		flex-direction: column;
 		justify-content: center;
-		gap: 0px;
+		gap: 4px;
 		
 		top: 0px;
 		left: 0px;

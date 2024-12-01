@@ -264,10 +264,10 @@ class SAC extends Sticker
 		});
 		descBox.addEventListener("blur", () =>
 		{
-			this.boxMeta = `EVENT: <u>No Description Given</u>`;
-
-			if(this.boxMeta == "")
+			if(descBox.innerText == "")
 				this.boxMeta = `EVENT: <u>${descBox.value}</u>`;
+			else
+				this.boxMeta = `EVENT: <u>No Description Given</u>`;
 
 			this.stopCheck = false;
 		});
@@ -345,7 +345,7 @@ class Change
 		for (let i = 0; i < cells.length; i++) {
 			const element = cells[i];
 
-			if(typeID)
+			if(typeID == 1)
 				changes.innerHTML += `<li>${element.boxMeta}<br>${element.metaData}</li>`;
 			else
 				changes.innerHTML += `<li>${element.metaData}</li>`;
@@ -548,17 +548,13 @@ function UpdateCells()
 	if(typeID != 0)
 		return;
 
+	let rounded = parseInt(cells.length / 3);
 	let maxWidth = "none";
 
-	switch(parseInt(cells.length / 3))
-	{
-		case 1:
-			maxWidth = "64%";
-		break;
-		case 2:
-			maxWidth = "31%";
-		break;
-	}
+	if(rounded == 1)
+		maxWidth = "64%";
+	else if(rounded > 1)
+		maxWidth = "31%";
 
 	matrix.style.setProperty("--cellMaxWidth", maxWidth);
 }
