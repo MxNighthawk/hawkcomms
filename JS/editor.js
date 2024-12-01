@@ -552,9 +552,9 @@ function UpdateCells()
 	let maxWidth = "none";
 
 	if(rounded == 1)
-		maxWidth = "64%";
+		maxWidth = "60%";
 	else if(rounded > 1)
-		maxWidth = "31%";
+		maxWidth = "30%";
 
 	matrix.style.setProperty("--cellMaxWidth", maxWidth);
 }
