@@ -221,6 +221,9 @@
 	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 24%);
 }
 .exampleItem img {
+	display: block;
+	margin: auto;
+
 	max-height: 100%;
 	max-width: 100%;
 }

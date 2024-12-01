@@ -196,8 +196,10 @@
 	flex: 1 1 30%;
 
 	justify-content: center;
+	align-content: center;
 	
 	max-width: var(--cellMaxWidth);
+	/* height: calc(var(--matrixSize) * 0.5); */
 	aspect-ratio: var(--ratio) / 1;
 }
 .ColumnMode .stickerCell {
@@ -230,11 +232,14 @@
 	opacity: 1;
 }
 
-.templatePart {	
+.templatePart {
 	position: absolute;
 
 	max-height: 100%;
 	max-width: 100%;
+}
+.templatePart:first-child {
+	position: relative;
 }
 
 .descriptionBox {
