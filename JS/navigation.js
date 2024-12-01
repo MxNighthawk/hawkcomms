@@ -26,7 +26,7 @@ window.onresize = () =>
 	else
 	{
 		nav.style.setProperty("display", "none");
-		showMini = true;
+		showMini = showMenu = true;
 	}
 };
 
@@ -44,9 +44,12 @@ function SetToolVisiblitiy(id)
 
 function HideMiniMenu()
 {
-	if(window.innerWidth > 500 || !needsAWarning)
-		return;
+	if(needsAWarning)
+		mini.style.setProperty("display", "none");
 	
+	if(window.innerWidth > 500)
+		return;
+
 	mini.style.setProperty("display", showMini ? "block" : "none");
 	showMini = !showMini;
 }

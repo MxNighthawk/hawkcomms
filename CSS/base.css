@@ -318,6 +318,7 @@ body::-webkit-scrollbar{
 		bottom: 0px;
 
 		margin: 0px;
+		padding: 8px;
 		backdrop-filter: blur(10px);
 
 		display: none;
