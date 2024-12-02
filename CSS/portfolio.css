@@ -169,7 +169,6 @@
 	background-color: #00f;
 }
 #closeportfolio img, #creditProceed img, #creditLink img {
-	width: 22px;
 	padding: 9px;
 }
 #closeportfolio p, #creditProceed p, #creditLink p {
@@ -177,15 +176,14 @@
 	padding: 8px 5px;
 }
 
-#creditCancel {
+#returnToFolio {
 	height: 48px;
 	background-color: #1e9d1e;
 }
-#creditCancel img {
-	width: 24px;
+#returnToFolio img {
 	padding: 12px;
 }
-#creditCancel p {
+#returnToFolio p {
 	font-size: 21px;
 	padding: 10px 5px;
 }

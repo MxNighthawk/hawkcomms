@@ -6,34 +6,34 @@
 		<meta name="descriptoin" content="NighthawkDev art commissions.">
 		<title>Commissions</title>
 		
-		<link href="./CSS/base.css?version=0.0.1" type="text/css" rel="stylesheet">
-		<link href="./CSS/portfolio.css?version=0.1.2" type="text/css" rel="stylesheet">
+		<link href="./CSS/base.css?version=0.1.0" type="text/css" rel="stylesheet">
+		<link href="./CSS/portfolio.css?version=0.1.3" type="text/css" rel="stylesheet">
 		<link href="./CSS/editor.css?version=0.1.1" type="text/css" rel="stylesheet">
 		<link href="./CSS/roadmap.css?version=0.0.1" type="text/css" rel="stylesheet">
 
 	</head>
 	<body onload="PrepSizes();AddCell();SetEditorStyles();SetRangeStyles();DisplayPacificTime();HideAllParts();">
-		<h1 style="text-align: center;">VERSION 0.19.6.0015 - 12/1/2024, 6:44 PM PT</h1>
+		<h1 style="text-align: center;">VERSION 0.19.6.0016 - 12/1/2024, 7:01 PM PT</h1>
 		
 		<a id="mobileMenuToggle" href="javascript:ShowMobileNav();">
-			<img src="./Graphics/Icons/Dropdown.png">
+			<img src="./Graphics/Icons/Dropdown.png" width="32px" height="32px">
 		</a>
 
 		<nav>
 			<button onclick="SetToolVisiblitiy(0);ShowMobileNav();">
-				<img src="./Graphics/Icons/Portfolio.png">
+				<img src="./Graphics/Icons/Portfolio.png" width="24px" height="24px">
 				<p>Portfolio</p>
 			</button>
 			<button onclick="SetToolVisiblitiy(1);ShowMobileNav();">
-				<img src="./Graphics/Icons/Editor.png">
+				<img src="./Graphics/Icons/Editor.png" width="24px" height="24px">
 				<p>Commission Editor</p>
 			</button>
 			<button onclick="SetToolVisiblitiy(2);ShowMobileNav();">
-				<img src="./Graphics/Icons/Roadmap.png">
+				<img src="./Graphics/Icons/Roadmap.png" width="24px" height="24px">
 				<p>Roadmap</p>
 			</button>
 			<button onclick="SetToolVisiblitiy(3);ShowMobileNav();">
-				<img src="./Graphics/Icons/Question.png">
+				<img src="./Graphics/Icons/Question.png" width="24px" height="24px">
 				<p>Questions</p>
 			</button>
 		</nav>
@@ -69,11 +69,11 @@
 							</div>
 
 							<button id="creditLink" onclick="LinkBackWarning();HideMiniMenu();">
-								<img src="./Graphics/Icons/Direct.png">
+								<img src="./Graphics/Icons/Direct.png" width="22px" height="22px">
 								<p>Character Creator (Warning!)</p>
 							</button>
 							<button id="closeportfolio" onclick="ShowPortfolio();">
-								<img src="./Graphics/Icons/Clear.png">
+								<img src="./Graphics/Icons/Clear.png" width="22px" height="22px">
 								<p>Close</p>
 							</button>
 						</div>
@@ -93,12 +93,12 @@
 					</p>
 
 					<hr>
-					<button id="creditCancel" onclick="DisposeWarning();HideMiniMenu();">
-						<img src="./Graphics/Icons/Direct.png">
+					<button id="returnToFolio" onclick="DisposeWarning();HideMiniMenu();">
+						<img src="./Graphics/Icons/Direct.png" width="24px" height="24px">
 						<p>Back To Gallery</p>
 					</button>
 					<button id="creditProceed" onclick="OpenRedirection();">
-						<img src="./Graphics/Icons/Warning.png">
+						<img src="./Graphics/Icons/Warning.png" width="22px" height="22px">
 						<p>Proceed to Link</p>
 					</button>
 				</div>
@@ -147,19 +147,19 @@
 						<p class="counter" id="cellCounter"></p>
 						<div id="stickerControls">
 							<button id="addCell" onclick="AddCell();">
-								<img src="./Graphics/Icons/Add.png">
+								<img src="./Graphics/Icons/Add.png"  width="20px" height="20px">
 								<p>Add Sticker</p>
 							</button>
 							<button id="selectCell" onclick="SelectAll();">
-								<img src="./Graphics/Icons/Select All.png">
+								<img src="./Graphics/Icons/Select All.png"  width="20px" height="20px">
 								<p>Select All</p>
 							</button>
 							<button id="deleteCell" onclick="DeleteCells();">
-								<img src="./Graphics/Icons/Delete.png">
+								<img src="./Graphics/Icons/Delete.png"  width="20px" height="20px">
 								<p>Delete Sticker(s)</p>
 							</button>
 							<button id="deselectCell" onclick="DeselectAll();">
-								<img src="./Graphics/Icons/Deselect All.png">
+								<img src="./Graphics/Icons/Deselect All.png"  width="20px" height="20px">
 								<p>Deselect All</p>
 							</button>
 						</div>
@@ -176,11 +176,11 @@
 						<p class="counter" id="listCounter">0 / 4</p>
 
 						<button id="addToTotal" onclick="AddToReceipt();">
-							<img src="./Graphics/Icons/Add.png">
+							<img src="./Graphics/Icons/Add.png" width="20px" height="20px">
 							<p>Add Customizations</p>
 						</button>
 						<button id="clearEstimate" onclick="ClearReceipt();">
-							<img src="./Graphics/Icons/Clear.png">
+							<img src="./Graphics/Icons/Clear.png" width="20px" height="20px">
 							<p>Clear Customizations</p>
 						</button>
 					</div>

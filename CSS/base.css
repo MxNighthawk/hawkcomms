@@ -82,8 +82,7 @@ button:not(nav > button):not(.purgeChange, .exampleItem, .category) p{
 button:not(nav > button):not(.purgeChange, .exampleItem, .category) img{
 	background-color: rgba(0, 0, 0, 0.5);
 
-	width: 18px;
-	padding: 7px;
+	padding: 6px;
 }
 
 #mobileMenuToggle {
@@ -137,7 +136,6 @@ nav button p {
 }
 nav button img{
 	background-color: transparent;
-	width: 24px;
 }
 
 
