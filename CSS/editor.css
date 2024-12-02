@@ -211,36 +211,41 @@
 
 .template {
 	position: relative;
+	height: 100%;
 	width: 100%;
 
 	display: flex;
-	justify-content: center;
 
-	aspect-ratio: var(--ratio) / 1;
+	justify-content: center;
+	align-content: center;
 }
 .templatePart {
 	position: absolute;
 
 	height: 100%;
 	max-width: auto;
+	
+	aspect-ratio: 1 / 1;
 }
 
 .MatrixMode .stickerCell {
-	display: flex;
 	flex: 1 1 30%;
-
-	justify-content: center;
-	align-content: center;
+	
+	max-width: var(--cellMaxWidth);
+	aspect-ratio: var(--ratio) / 1;
 }
 .ColumnMode .stickerCell {
-	height: 128px;
+	height: 160px;
 	max-width: none;
 
 	display: flex;
 	gap: 4px;
 }
 .ColumnMode .template {
-	max-width: 128px;
+	width: 160px;
+	height: 160px;
+
+	aspect-ratio: 1 / 1;
 }
 
 
