@@ -554,7 +554,7 @@ function UpdateCells()
 		return;
 
 	let rounded = parseInt(cells.length / 3);
-	let maxWidth = "none";
+	let maxWidth = "100%";
 
 	if(rounded == 1)
 		maxWidth = "60%";

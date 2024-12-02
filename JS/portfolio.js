@@ -140,7 +140,7 @@ class Piece
 
 		this.image = document.createElement("img");
 		this.image.src = `./Graphics/Portfolio/${file}`;
-		this.image.alt = "example";
+		this.image.alt = this.title;
 		
 		this.item.append(this.image);
 		portfolioMask.append(this.item);

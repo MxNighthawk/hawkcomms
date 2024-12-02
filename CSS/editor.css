@@ -1,6 +1,7 @@
 :root {
-	--cellMaxWidth: none;
+	--cellMaxWidth: 90%;
 	--matrixSize: 768px;
+	--matrixHeight: 512px;
 	--selectStates: initial;
 	--ratio: 1.5;
 }
@@ -42,7 +43,10 @@
 	background: linear-gradient(to bottom, hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 10%)
 										, hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 5%));
 	display: flex;
-	flex: 1 1 calc(var(--matrixSize) / var(--ratio));
+
+	height: var(--matrixHeight);
+	justify-content: center;
+	align-content: center;
 
 	border-radius: 4px 4px 0px 0px;
 	padding: 4px;
@@ -222,14 +226,15 @@
 .templatePart {
 	position: absolute;
 
-	height: 100%;
-	max-width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
 	
 	aspect-ratio: 1 / 1;
 }
 
 .MatrixMode .stickerCell {
-	flex: 1 1 30%;
+	flex: 1 1 25%;
 	
 	max-width: var(--cellMaxWidth);
 	aspect-ratio: var(--ratio) / 1;
