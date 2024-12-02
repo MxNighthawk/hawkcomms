@@ -215,7 +215,7 @@
 	border-radius: 4px;
 	
 	flex: 1 1 33%;
-	max-height: 320px;
+	height: 320px;
 }
 .exampleItem:nth-child(even) {
 	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 24%);
