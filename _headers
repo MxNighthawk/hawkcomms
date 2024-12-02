@@ -1,4 +1,4 @@
 yaml
 
 /hawkcomms/*
-Cache-Control: no-cache
+Cache-Control: max-age=31536000
