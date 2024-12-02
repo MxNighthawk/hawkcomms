@@ -141,16 +141,14 @@ class Sticker
 		this.cell.classList.add("stickerCell");
 		this.cell.append(template);
 		
-		this.#light = document.createElement('img');
-		this.#outline = document.createElement('img');
+		this.#light = document.createElement('div');
+		this.#outline = document.createElement('div');
 
-		this.#light.src = "./Graphics/Templates/Stickers/1char/lit.png";
-		this.#light.alt = "lighting";
-		this.#light.classList.add("templatePart");
+		this.#light.classList.add("lightingPart");
+		this.#outline.classList.add("outlinePart");
 
-		this.#outline.src = "./Graphics/Templates/Stickers/1char/solid.png";
-		this.#outline.alt = "outline";
-		this.#outline.classList.add("templatePart");
+		this.#light.style.setProperty("background-image", `url("./Graphics/Templates/Stickers/1char/lit.png")`);
+		this.#outline.style.setProperty("background-image", `url("./Graphics/Templates/Stickers/1char/solid.png")`);
 
 		template.append(this.#outline);
 		template.append(this.#light);
@@ -223,13 +221,13 @@ class Sticker
 	{
 		this.#location = this.charactersPresent == 2 ? "2chars" : "1char";
 		
-		this.#light.src = `./Graphics/Templates/Stickers/${this.#location}/${this.lightingType != 1 ? "unlit" : "lit"}.png`;
+		this.#light.style.setProperty("background-image", `url("./Graphics/Templates/Stickers/${this.#location}/${this.lightingType != 1 ? "unlit" : "lit"}.png`);
 	}
 	SetOutlineLayer()
 	{
 		this.#location = this.charactersPresent == 2 ? "2chars" : "1char";
 		
-		this.#outline.src = `./Graphics/Templates/Stickers/${this.#location}/${outlines[this.outlineStyle]}.png`;
+		this.#outline.style.setProperty("background-image", `url("./Graphics/Templates/Stickers/${this.#location}/${outlines[this.outlineStyle]}.png")`);
 	}
 }
 class SAC extends Sticker
