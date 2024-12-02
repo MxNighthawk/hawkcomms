@@ -552,14 +552,14 @@ function UpdateCells()
 		return;
 
 	let rounded = parseInt(cells.length / 3);
-	let maxWidth = "100%";
+	let maxWidth = "90%";
 
 	if(rounded == 1)
-		maxWidth = "60%";
+		maxWidth = "40%";
 	else if(rounded > 1)
 		maxWidth = "30%";
-
-	matrix.style.setProperty("--cellMaxWidth", maxWidth);
+	
+	matrix.style.setProperty("--cellHeight", maxWidth);
 }
 
 function SelectCommission()
