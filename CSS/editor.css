@@ -39,6 +39,11 @@
 	display: flex;
 	flex-direction: column;
 }
+#editor * {
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
+}
 #editorView {
 	background: linear-gradient(to bottom, hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 10%)
 										, hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 5%));
@@ -46,8 +51,6 @@
 	flex: 1 1 auto;
 
 	height: var(--matrixHeight);
-	justify-content: center;
-	align-content: center;
 
 	border-radius: 4px 4px 0px 0px;
 	padding: 4px;
@@ -121,12 +124,6 @@
 #clearEstimate {
 	margin-top: 4px;
 	background: #ff0000;
-}
-
-#editor * {
-	user-select: none;
-	-webkit-user-select: none;
-	-webkit-user-drag: none;
 }
 
 .estimatorTitle {

@@ -132,17 +132,14 @@ class Piece
 		this.item = document.createElement("button");
 		this.item.type = "button";
 		this.item.ariaLabel = `Piece example - ${this.title}`;
+		this.item.style.setProperty("background-image", `url(./Graphics/Portfolio/${file})`);
 
 		this.item.classList.add("exampleItem");
 		this.item.addEventListener("click", (e) => {
 			ShowPortfolio(this);
 		});
 
-		this.image = document.createElement("img");
-		this.image.src = `./Graphics/Portfolio/${file}`;
-		this.image.alt = this.title;
-		
-		this.item.append(this.image);
+		this.image = `./Graphics/Portfolio/${file}`;
 		portfolioMask.append(this.item);
 		
 		for (let i = 0; i < info.length; i++) {
@@ -182,7 +179,7 @@ function ShowPortfolio(piece)
 {
 	if(piece != null)
 	{
-		expansionVisual.getElementsByTagName("img")[0].src = piece.image.src;
+		expansionVisual.getElementsByTagName("img")[0].src = piece.image;
 		expansionVisual.style.setProperty("--dropShadowColor", piece.shadowColor);
 
 		expansionMeta.getElementsByTagName("h1")[0].innerText = piece.title;
