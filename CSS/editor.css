@@ -191,28 +191,6 @@
 	align-content: center;
 }
 
-.MatrixMode .stickerCell {
-	display: flex;
-	flex: 1 1 30%;
-
-	justify-content: center;
-	align-content: center;
-	
-	max-width: var(--cellMaxWidth);
-	aspect-ratio: var(--ratio) / 1;
-}
-.ColumnMode .stickerCell {
-	height: 128px;
-	max-width: none;
-
-	display: flex;
-	gap: 4px;
-}
-.ColumnMode .templatePart {
-	margin-left: 0px;
-	width: 128px;
-}
-
 .stickerCell {
 	position: relative;
 
@@ -231,15 +209,40 @@
 	opacity: 1;
 }
 
+.template {
+	position: relative;
+	width: 100%;
+
+	display: flex;
+	justify-content: center;
+
+	aspect-ratio: var(--ratio) / 1;
+}
 .templatePart {
 	position: absolute;
 
 	height: 100%;
-	max-width: 100%;
+	max-width: auto;
 }
-.templatePart:first-child {
-	position: relative;
+
+.MatrixMode .stickerCell {
+	display: flex;
+	flex: 1 1 30%;
+
+	justify-content: center;
+	align-content: center;
 }
+.ColumnMode .stickerCell {
+	height: 128px;
+	max-width: none;
+
+	display: flex;
+	gap: 4px;
+}
+.ColumnMode .template {
+	max-width: 128px;
+}
+
 
 .descriptionBox {
 	width: 100%;

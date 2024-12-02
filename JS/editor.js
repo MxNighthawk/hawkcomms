@@ -135,6 +135,9 @@ class Sticker
 		this.charactersPresent = 1;
 
 		this.cell = document.createElement('div');
+		let template = document.createElement('div');
+		template.classList.add("template");
+
 		this.#light = document.createElement('img');
 		this.#outline = document.createElement('img');
 		
@@ -147,8 +150,9 @@ class Sticker
 		this.#outline.classList.add("templatePart");
 
 		this.cell.classList.add("stickerCell");
-		this.cell.append(this.#outline);
-		this.cell.append(this.#light);
+		template.append(this.#outline);
+		template.append(this.#light);
+		this.cell.append(template);
 
 		this.cell.addEventListener("click", () =>
 		{
