@@ -159,15 +159,15 @@ class Piece
 let sets = [
 	new Piece("Bman Stickers", 
 				["1 Character", "Lit", "Distortion"], 
-				"/Bman_Stickers.png", "red", "#ff0052",
+				"/Bman_Stickers.webp", "red", "#ff0052",
 				"https://x.com/BmanTwt", false),
 	new Piece("Trick x Orion Friendship", 
 				["2 Characters", "Unlit", "Distortion"], 
-				"/Friendship.png", "blue", "#ffea51",
+				"/Friendship.webp", "blue", "#ffea51",
 				"https://linktr.ee/trickqrex", true),
 ];
 let sacs = [
-	// new Piece("Hottest Voice Guy (C)", ["Single Piece", "Lit", "1 Character"], "/IMG_1152.png"),
+	// new Piece("Hottest Voice Guy (C)", ["Single Piece", "Lit", "1 Character"], "/IMG_1152.webp"),
 ];
 
 portfolioContainer.addEventListener("keydown", (e) =>
@@ -179,7 +179,7 @@ function ShowPortfolio(piece)
 {
 	if(piece != null)
 	{
-		expansionVisual.getElementsByTagName("img")[0].src = piece.image;
+		expansionVisual.style.setProperty("background-image", `url(${piece.image})`);
 		expansionVisual.style.setProperty("--dropShadowColor", piece.shadowColor);
 
 		expansionMeta.getElementsByTagName("h1")[0].innerText = piece.title;
@@ -187,7 +187,7 @@ function ShowPortfolio(piece)
 		expansionMeta.style.setProperty("--outlineTint", piece.outlineColor);
 
 		overlayCredit.innerText = piece.warning ? "Character Credits (Content Warning)" : "Character Credits";
-		creditIcon.src = `./Graphics/Icons/${piece.warning ? "Warning" : "Direct"}.png`;
+		creditIcon.src = `./Graphics/Icons/${piece.warning ? "Warning" : "Direct"}.webp`;
 		needsAWarning = piece.warning;
 		redirectionLink = piece.credit;
 	}

@@ -7,33 +7,33 @@
 		<title>Commissions</title>
 		
 		<link href="./CSS/base.css?version=0.1.1" type="text/css" rel="stylesheet">
-		<link href="./CSS/portfolio.css?version=0.3.0" type="text/css" rel="stylesheet">
+		<link href="./CSS/portfolio.css?version=0.4.0" type="text/css" rel="stylesheet">
 		<link href="./CSS/editor.css?version=0.3.0" type="text/css" rel="stylesheet">
-		<link href="./CSS/roadmap.css?version=0.0.1" type="text/css" rel="stylesheet">
+		<link href="./CSS/roadmap.css?version=0.1.0" type="text/css" rel="stylesheet">
 
 	</head>
 	<body onload="PrepSizes();AddCell();SetEditorStyles();SetRangeStyles();DisplayPacificTime();HideAllParts();">
-		<h1 style="text-align: center;">VERSION 0.19.8.0005 - 12/2/2024, 3:28 AM PT</h1>
+		<h1 style="text-align: center;">VERSION 0.19.9.0001 - 12/2/2024, 8:49 AM PT</h1>
 		
 		<a id="mobileMenuToggle" href="javascript:ShowMobileNav();">
-			<img src="./Graphics/Icons/Dropdown.png" width="32px" height="32px">
+			<img src="./Graphics/Icons/Dropdown.webp" width="32px" height="32px">
 		</a>
 
 		<nav>
 			<button onclick="SetToolVisiblitiy(0);ShowMobileNav();">
-				<img src="./Graphics/Icons/Portfolio.png" width="24px" height="24px">
+				<img src="./Graphics/Icons/Portfolio.webp" width="24px" height="24px">
 				<p>Portfolio</p>
 			</button>
 			<button onclick="SetToolVisiblitiy(1);ShowMobileNav();">
-				<img src="./Graphics/Icons/Editor.png" width="24px" height="24px">
+				<img src="./Graphics/Icons/Editor.webp" width="24px" height="24px">
 				<p>Commission Editor</p>
 			</button>
 			<button onclick="SetToolVisiblitiy(2);ShowMobileNav();">
-				<img src="./Graphics/Icons/Roadmap.png" width="24px" height="24px">
+				<img src="./Graphics/Icons/Roadmap.webp" width="24px" height="24px">
 				<p>Roadmap</p>
 			</button>
 			<button onclick="SetToolVisiblitiy(3);ShowMobileNav();">
-				<img src="./Graphics/Icons/Question.png" width="24px" height="24px">
+				<img src="./Graphics/Icons/Question.webp" width="24px" height="24px">
 				<p>Questions</p>
 			</button>
 		</nav>
@@ -65,15 +65,14 @@
 							</div>
 
 							<div id="piece">
-								<img src="" alt="focusedItem">
 							</div>
 
 							<button id="creditLink" onclick="LinkBackWarning();HideMiniMenu();">
-								<img src="./Graphics/Icons/Direct.png" width="22px" height="22px">
+								<img src="./Graphics/Icons/Direct.webp" width="22px" height="22px">
 								<p>Character Creator (Warning!)</p>
 							</button>
 							<button id="closeportfolio" onclick="ShowPortfolio();">
-								<img src="./Graphics/Icons/Clear.png" width="22px" height="22px">
+								<img src="./Graphics/Icons/Clear.webp" width="22px" height="22px">
 								<p>Close</p>
 							</button>
 						</div>
@@ -94,11 +93,11 @@
 
 					<hr>
 					<button id="returnToFolio" onclick="DisposeWarning();HideMiniMenu();">
-						<img src="./Graphics/Icons/Direct.png" width="24px" height="24px">
+						<img src="./Graphics/Icons/Direct.webp" width="24px" height="24px">
 						<p>Back To Gallery</p>
 					</button>
 					<button id="creditProceed" onclick="OpenRedirection();">
-						<img src="./Graphics/Icons/Warning.png" width="22px" height="22px">
+						<img src="./Graphics/Icons/Warning.webp" width="22px" height="22px">
 						<p>Proceed to Link</p>
 					</button>
 				</div>
@@ -147,19 +146,19 @@
 						<p class="counter" id="cellCounter"></p>
 						<div id="stickerControls">
 							<button id="addCell" onclick="AddCell();">
-								<img src="./Graphics/Icons/Add.png"  width="20px" height="20px">
+								<img src="./Graphics/Icons/Add.webp"  width="20px" height="20px">
 								<p>Add Sticker</p>
 							</button>
 							<button id="selectCell" onclick="SelectAll();">
-								<img src="./Graphics/Icons/Select All.png"  width="20px" height="20px">
+								<img src="./Graphics/Icons/Select All.webp"  width="20px" height="20px">
 								<p>Select All</p>
 							</button>
 							<button id="deleteCell" onclick="DeleteCells();">
-								<img src="./Graphics/Icons/Delete.png"  width="20px" height="20px">
+								<img src="./Graphics/Icons/Delete.webp"  width="20px" height="20px">
 								<p>Delete Sticker(s)</p>
 							</button>
 							<button id="deselectCell" onclick="DeselectAll();">
-								<img src="./Graphics/Icons/Deselect All.png"  width="20px" height="20px">
+								<img src="./Graphics/Icons/Deselect All.webp"  width="20px" height="20px">
 								<p>Deselect All</p>
 							</button>
 						</div>
@@ -176,11 +175,11 @@
 						<p class="counter" id="listCounter">0 / 4</p>
 
 						<button id="addToTotal" onclick="AddToReceipt();">
-							<img src="./Graphics/Icons/Add.png" width="20px" height="20px">
+							<img src="./Graphics/Icons/Add.webp" width="20px" height="20px">
 							<p>Add Customizations</p>
 						</button>
 						<button id="clearEstimate" onclick="ClearReceipt();">
-							<img src="./Graphics/Icons/Clear.png" width="20px" height="20px">
+							<img src="./Graphics/Icons/Clear.webp" width="20px" height="20px">
 							<p>Clear Customizations</p>
 						</button>
 					</div>
@@ -325,8 +324,8 @@
 	</body>
 
 	<script src="./JS/drag.js?version = 2.0.0"></script>
-	<script src="./JS/portfolio.js?version = 2.2.0"></script>
-	<script src="./JS/editor.js?version = 2.2.1"></script>
+	<script src="./JS/portfolio.js?version = 2.3.0"></script>
+	<script src="./JS/editor.js?version = 2.3.0"></script>
 	<script src="./JS/mapStrips.js?version = 2.0.0"></script>
 	<script src="./JS/roadmap.js?version = 2.0.0"></script>
 	<script src="./JS/navigation.js?version = 1.0.2"></script>
