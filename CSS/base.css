@@ -1,14 +1,20 @@
 @font-face {
 	font-family: "Rajdhani Bold";
-	src: url("../Font/Rajdhani-Bold.ttf") format('truetype');
+	src: local("Rajdhani-Bold"), url("../Font/Rajdhani-Bold.ttf") format('truetype');
+
+	font-display: swap;
 }
 @font-face {
 	font-family: "Rajdhani";
-	src: url("../Font/Rajdhani-Medium.ttf") format('truetype');
+	src: local("Rajdhani-Medium"), url("../Font/Rajdhani-Medium.ttf") format('truetype');
+
+	font-display: swap;
 }
 @font-face {
 	font-family: "Rajdhani Semi";
-	src: url("../Font/Rajdhani-SemiBold.ttf") format('truetype');
+	src: local("Rajdhani-SemiBold"), url("../Font/Rajdhani-SemiBold.ttf") format('truetype');
+
+	font-display: swap;
 }
 
 :root {
