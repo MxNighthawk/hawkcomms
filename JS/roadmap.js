@@ -18,7 +18,7 @@ let today = new Date();
 today.setUTCHours(today.getUTCHours() - 8);
 
 let resize;
-let use12HourCycle = true;
+let use12HourCycle = true, isFocused = false;
 
 function Clamp(f, min, max)
 {
@@ -43,10 +43,14 @@ for (let i = 0; i < dateStamps.length; i++) {
 		element.parentElement.classList.add("currentDay");
 }
 
+setInterval(() => {
+	DisplayPacificTime();
+}, 500);
+
 function DisplayPacificTime()
 {
 	let pacific = new Date();
-	pacific.setUTCHours(today.getUTCHours());
+	pacific.setUTCHours(pacific.getUTCHours() - 8);
 	
 	let hour = pacific.getUTCHours();
 	let minutes = pacific.getUTCMinutes();
@@ -60,10 +64,6 @@ function DisplayPacificTime()
 	else
 		pacificTime.innerText = `Pacific Time - ${hour > 12 ? hour - 12 : hour}:${mins}:${secs} ${parseInt(hour / 12) == 1 ? "PM" : "AM"}`;		
 }
-
-setInterval(() => {
-	DisplayPacificTime();
-}, 500);
 
 function SwapTimeFormat()
 {
