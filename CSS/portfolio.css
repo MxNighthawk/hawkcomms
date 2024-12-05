@@ -172,7 +172,7 @@
 	background-color: #f00;
 }
 #creditProceed {
-	opacity: 0;
+	opacity: 0.2;
 	background-color: #000087;
 	
 	pointer-events: none;

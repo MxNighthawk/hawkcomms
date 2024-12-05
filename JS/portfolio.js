@@ -112,7 +112,7 @@ let safeguardFrames = new KeyframeEffect(
 	goToLink,
 	[
 		{
-			opacity: "0",
+			opacity: "0.2",
 			pointerEvents: "none"
 		},
 		{
@@ -273,7 +273,7 @@ function DisposeWarning()
 	portfolioWarning.style.setProperty("z-index", -1);
 	document.body.style.setProperty("overflow-y", "auto");
 
-	goToLink.style.setProperty("opactiy", 0);
+	goToLink.style.setProperty("opactiy", 0.2);
 	goToLink.style.setProperty("pointer-events", "none");
 }
 function OpenRedirection()
