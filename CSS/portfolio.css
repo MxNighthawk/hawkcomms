@@ -13,6 +13,8 @@
 }
 
 #portfolioContainer {
+	position: relative;
+
 	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 6%);
 	border: solid 4px transparent;
 	border-radius: 0px 0px 4px 4px;
@@ -20,16 +22,18 @@
 	height: 85vh;
 	display: block;
 
-	position: relative;
-	overflow-y: auto;
 	overflow-x: hidden;
 }
 #portfolioPieces {
+	overflow-y: scroll;
+
 	display: flex;
 	flex-wrap: wrap;
 	
-	height: max-content;
+	height: 100%;
 	gap: 4px;
+
+	padding-right: 4px;
 }
 
 #focusedDisplay, #contentWarning {
@@ -42,9 +46,7 @@
 	justify-content: center;
 	align-items: center;
 
-	position: absolute;
 	z-index: -1;
-
 	top: 0px;
 	right: 0px;
 	bottom: 0px;
@@ -53,7 +55,16 @@
 	overflow: hidden;
 	opacity: 0;
 }
+#contentWarning {
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+#contentWarning button {
+	flex: 1 1 100%;
+}
+
 #focusedDisplay {
+	position: absolute;
 	text-transform: uppercase;
 }
 #focusedPiece {
@@ -76,14 +87,6 @@
 	height: 55vh;
 
 	filter: drop-shadow(0px 0px 4px var(--dropShadowColor));
-}
-
-#contentWarning {
-	background-color: rgba(0, 0, 0, 0.9);
-	position: fixed;
-}
-#contentWarning button {
-	flex: 1 1 100%;
 }
 
 #warnings {
@@ -133,15 +136,12 @@
 #pieceMeta li:last-of-type {
 	position: relative;
 }
+
+/*Add a class to the last list element swap styles in JS*/
 #pieceMeta li:last-of-type::after {
 	content: "";
-	background: var(--outlineTint);
-	
-	border: outset 3px #570200;
-	border-bottom-color: blue;
-	border-right-color: blue;
-	border-radius: 2px;
 
+	border-radius: 2px;
 	width: 8px;
 	height: 8px;
 
@@ -151,6 +151,20 @@
 	transform: translateY(calc(-50% - 1px));
 }
 
+.Solid:last-of-type::after {
+	border: solid 3px var(--outlineTint);
+}
+.Mixed:last-of-type::after {
+	display: none;
+}
+.Distortion:last-of-type::after {
+	background: var(--outlineTint);
+
+	border: outset 3px #570200;
+	border-bottom-color: blue;
+	border-right-color: blue;
+}
+
 #closeportfolio, #creditProceed, #creditLink {
 	height: 40px;
 }
@@ -158,7 +172,10 @@
 	background-color: #f00;
 }
 #creditProceed {
+	opacity: 0;
 	background-color: #000087;
+	
+	pointer-events: none;
 }
 #creditLink {
 	background-color: #00f;
@@ -212,14 +229,13 @@
 	border: solid 4px hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 20%);
 	border-radius: 4px;
 	
-	flex: 1 1 auto;
+	flex: 1 1 30%;
 	height: 320px;
 }
 .exampleItem:nth-child(even) {
 	background-color: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 24%);
 	border: solid 4px hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 93%), 24%);
 }
-
 
 @media (max-width: 425px) {
 	#portfolioPieces, #portfolioFilters {

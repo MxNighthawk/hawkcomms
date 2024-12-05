@@ -108,6 +108,29 @@ let toggleTiming = {
 	fill: "forwards"
 };
 
+let safeguardFrames = new KeyframeEffect(
+	goToLink,
+	[
+		{
+			opacity: "0",
+			pointerEvents: "none"
+		},
+		{
+			opacity: "1",
+			pointerEvents: "fill"
+		}
+	],
+	{
+		iterations: 1,
+		delay: 1500,
+		duration: 250,
+		easing: "ease",
+		fill: "forwards"
+	}
+);
+
+let buttonSafeguard = new Animation(safeguardFrames);
+
 class Piece
 {
 	title;
@@ -124,8 +147,10 @@ class Piece
 	constructor(name, info, file, color, tint, credit, warn)
 	{
 		this.title = name;
+
 		this.shadowColor = color;
 		this.outlineColor = tint;
+
 		this.credit = credit;
 		this.warning = warn;
 		
@@ -145,7 +170,10 @@ class Piece
 		for (let i = 0; i < info.length; i++) {
 			const element = info[i];
 			
-			this.information += `<li ${i == 0 ? 'style="list-style: none;"' : ""}>${element}</li>`;
+			if(i < info.length - 1)
+				this.information += `<li ${i == 0 ? 'style="list-style: none;"' : ""}>${element}</li>`;
+			else
+				this.information += `<li class="${element}">${element}</li>`;
 		}
 	}
 
@@ -158,16 +186,35 @@ class Piece
 
 let sets = [
 	new Piece("Bman Stickers", 
-				["1 Character", "Lit", "Distortion"], 
-				"/Bman_Stickers.webp", "red", "#ff0052",
-				"https://x.com/BmanTwt", false),
+			["1 Character", "Lit", "Distortion"], 
+			"/Bman_Stickers.webp", "red", "#ff0052",
+			"https://x.com/BmanTwt", false),
 	new Piece("Trick x Orion Friendship", 
-				["2 Characters", "Unlit", "Distortion"], 
-				"/Friendship.webp", "blue", "#ffea51",
-				"https://linktr.ee/trickqrex", true),
+			["2 Characters", "Unlit", "Distortion"], 
+			"/Friendship.webp", "blue", "#ffea51",
+			"https://linktr.ee/trickqrex", true),
+	new Piece("USB Stickers", 
+			["1 Character", "Unlit", "Solid"], 
+			"/Bman_Stickers.webp", "blue", "#ff0052",
+			"https://x.com/Mephonizuku", false),
+	new Piece("Wildbeast Stickers", 
+			["1 Character", "Lit", "Mixed"], 
+			"/Bman_Stickers.webp", "yellow", "",
+			"https://x.com/NickConter", false),
+	new Piece("Fred Mixing Stickers", 
+			["1 Character", "Mixed", "Mixed"], 
+			"/Bman_Stickers.webp", "green", "",
+			"https://x.com/Fredrick7298", true),
 ];
 let sacs = [
-	// new Piece("Hottest Voice Guy (C)", ["Single Piece", "Lit", "1 Character"], "/IMG_1152.webp"),
+	new Piece("Mewmie Draws", 
+			["1 Character", "Lit", "Solid"], 
+			"/Bman_Stickers.webp", "lime", "#fff",
+			"https://x.com/LampCat555", true),
+	new Piece("Hector's Best Desert", 
+			["1 Character", "Lit", "Solid"], 
+			"/Bman_Stickers.webp", "yellow", "#fff",
+			"https://bsky.app/profile/thomaslover66.bsky.social", false),
 ];
 
 portfolioContainer.addEventListener("keydown", (e) =>
@@ -210,6 +257,9 @@ function LinkBackWarning()
 {
 	if(needsAWarning)
 	{
+		buttonSafeguard.cancel();
+		buttonSafeguard.play();
+
 		portfolioWarning.style.setProperty("opacity", 1);
 		portfolioWarning.style.setProperty("z-index", 2);
 		document.body.style.setProperty("overflow-y", "hidden");
@@ -222,10 +272,14 @@ function DisposeWarning()
 	portfolioWarning.style.setProperty("opacity", 0);
 	portfolioWarning.style.setProperty("z-index", -1);
 	document.body.style.setProperty("overflow-y", "auto");
+
+	goToLink.style.setProperty("opactiy", 0);
+	goToLink.style.setProperty("pointer-events", "none");
 }
 function OpenRedirection()
 {
 	window.open(redirectionLink);
+	DisposeWarning();
 }
 
 function ToggleCategory(id)

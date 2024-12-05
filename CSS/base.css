@@ -239,14 +239,15 @@ input[type="text"]::placeholder {
 	outline: none;
 }
 
-body::-webkit-scrollbar, #editorTools ::-webkit-scrollbar, #galleryContainer::-webkit-scrollbar{
+body::-webkit-scrollbar, #editorTools ::-webkit-scrollbar, #portfolioPieces::-webkit-scrollbar{
 	background: rgba(0, 0, 0, 0.75);
 	border-radius: 4px;
 	
 	width: 8px;
 }
-body::-webkit-scrollbar-thumb, #editorTools ::-webkit-scrollbar-thumb, #galleryContainer::-webkit-scrollbar-thumb{
+body::-webkit-scrollbar-thumb, #editorTools ::-webkit-scrollbar-thumb, #portfolioPieces::-webkit-scrollbar-thumb{
 	border-radius: 4px;
+
 	background: hsl(var(--interfaceHue), calc(var(--interfaceSaturation) * 100%), 25%);
 }
 body::-webkit-scrollbar{
