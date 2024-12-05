@@ -52,10 +52,13 @@ function DisplayPacificTime()
 	let minutes = pacific.getUTCMinutes();
 	let seconds = pacific.getUTCSeconds();
 
+	let mins = minutes < 10 ? `0${minutes}` : minutes;
+	let secs = seconds < 10 ? `0${seconds}` : seconds;
+
 	if(!use12HourCycle)
-		pacificTime.innerText = `Pacific Time - ${hour}:${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+		pacificTime.innerText = `Pacific Time - ${hour}:${mins}:${secs}`;
 	else
-		pacificTime.innerText = `Pacific Time - ${hour > 12 ? hour - 12 : hour}:${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds} ${parseInt(hour / 12) == 1 ? "PM" : "AM"}`;		
+		pacificTime.innerText = `Pacific Time - ${hour > 12 ? hour - 12 : hour}:${mins}:${secs} ${parseInt(hour / 12) == 1 ? "PM" : "AM"}`;		
 }
 
 setInterval(() => {
